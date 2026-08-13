@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-08-09T05:20:00Z",
+  "project_notice": "Privates, nicht-kommerzielles Entwicklungsprojekt",
+  "apps": [
+    {
+      "id": "capture",
+      "name": "Qyventa Capture",
+      "version": "0.6.2",
+      "channel": "Windows-Beta",
+      "state": "In aktiver Entwicklung",
+      "message": "Aufnahme, Demo-Import und Auto-Cut werden aktuell weiter getestet und optimiert."
+    },
+    {
+      "id": "tote-reden-nicht",
+      "name": "Tote reden nicht!",
+      "version": "0.1.0",
+      "channel": "Windows-Beta",
+      "state": "In aktiver Entwicklung",
+      "message": "Discord-/TeamSpeak-Anbindung und automatische Stummschaltung befinden sich im Beta-Aufbau."
+    }
+  ]
+}
