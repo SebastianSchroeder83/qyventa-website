@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#05060a">
+  <meta name="description" content="Qyventa nimmt Videos auf, erkennt Highlights mit KI, schneidet automatisch und veröffentlicht auf YouTube, TikTok und mehr.">
+  <title>Qyventa — Create. Capture. Publish.</title>
+
+  <style>
+    :root{
+      --bg:#05060a;
+      --bg2:#090b12;
+      --panel:rgba(255,255,255,.055);
+      --panel2:rgba(255,255,255,.085);
+      --line:rgba(255,255,255,.12);
+      --text:#f7f8ff;
+      --muted:#a7afc0;
+      --cyan:#1ce6e2;
+      --blue:#5595ff;
+      --violet:#8d5cff;
+      --pink:#d83cff;
+      --radius:28px;
+      --shadow:0 30px 100px rgba(0,0,0,.48);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%,rgba(28,230,226,.11),transparent 32rem),
+        radial-gradient(circle at 85% 15%,rgba(141,92,255,.14),transparent 34rem),
+        linear-gradient(180deg,#05060a 0%,#070911 55%,#05060a 100%);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .gradient-text{
+      background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--pink));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+
+    /* Particle canvas */
+    #particles{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6}
+
+    /* Navigation */
+    header{
+      position:fixed;inset:0 0 auto;z-index:100;
+      background:rgba(5,6,10,.64);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(20px);
+    }
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.13em}
+    .brand img{width:43px;height:43px;border-radius:13px}
+    .navlinks{display:flex;align-items:center;gap:28px;color:#c8cede;font-size:.95rem}
+    .navlinks a{transition:.2s}
+    .navlinks a:hover{color:#fff}
+    .menu{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+    .pill,.primary,.secondary{
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius:999px;padding:15px 23px;font-weight:800;
+      transition:transform .22s ease,filter .22s ease,background .22s ease;
+    }
+    .pill,.primary{
+      color:#04060a;
+      background:linear-gradient(135deg,var(--cyan),var(--blue) 50%,var(--pink));
+      border:0;
+      box-shadow:0 12px 38px rgba(82,139,255,.26);
+    }
+    .pill:hover,.primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .secondary:hover{background:rgba(255,255,255,.09)}
+
+    /* Hero */
+    main{padding-top:78px}
+    .hero{min-height:calc(100vh - 78px);display:grid;align-items:center;padding:85px 0 55px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:8px 13px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(255,255,255,.045);color:#d9dfec;font-size:.86rem
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+    h1,h2,h3{font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+    h1{font-size:clamp(3.2rem,7vw,6.65rem);line-height:.94;letter-spacing:-.065em;margin:25px 0}
+    .hero p{font-size:1.15rem;line-height:1.75;color:var(--muted);max-width:690px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:34px;color:#8992a5;font-size:.88rem}
+
+    /* Hero product video mockup */
+    .stage{
+      position:relative;padding:18px;border-radius:34px;
+      background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(20px);
+      transform-style:preserve-3d;
+    }
+    .stage:before{
+      content:"";position:absolute;inset:8% -10%;
+      background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink));
+      filter:blur(80px);opacity:.22;z-index:-1;
+    }
+    .video-shell{overflow:hidden;border-radius:23px;background:#090b10;border:1px solid rgba(255,255,255,.1)}
+    .browserbar{height:53px;display:flex;align-items:center;gap:8px;padding:0 18px;border-bottom:1px solid var(--line)}
+    .browserbar i{width:10px;height:10px;border-radius:50%;background:#343946}
+    .video{
+      aspect-ratio:16/9;position:relative;overflow:hidden;
+      background:#080a10;
+    }
+    .video-thumbnail{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.04) contrast(1.03)}
+    .video:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(4,6,10,.04) 42%,rgba(4,6,10,.76) 100%)}
+    .video.playing:after{display:none}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+    .gridlines{
+      position:absolute;inset:0;z-index:1;opacity:.08;
+      background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+      background-size:38px 38px;
+    }
+    .video-copy{position:absolute;left:28px;bottom:26px;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+    .video-copy strong{font-size:1.15rem}.video-copy small{display:block;color:#b3bbcb;margin-top:5px}
+    .play{position:absolute;inset:0;z-index:3;margin:auto;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);backdrop-filter:blur(13px);border:1px solid rgba(255,255,255,.26);box-shadow:0 12px 40px rgba(0,0,0,.42);cursor:pointer}
+    .play:hover{transform:scale(1.05)}
+    .timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:16px}
+    .timeline span{height:47px;border-radius:10px;background:linear-gradient(135deg,#171c29,#252d43)}
+    .timeline span:nth-child(3),.timeline span:nth-child(4){background:linear-gradient(135deg,var(--cyan),var(--violet))}
+
+    section{padding:110px 0}
+    .section-head{max-width:770px;margin:0 auto 55px;text-align:center}
+    .section-head h2{font-size:clamp(2.35rem,5vw,4rem);letter-spacing:-.05em;margin:0 0 18px}
+    .section-head p{margin:0;color:var(--muted);line-height:1.75}
+
+    /* Glass cards */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{
+      padding:31px;border-radius:var(--radius);min-height:258px;
+      background:linear-gradient(180deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.25);
+      backdrop-filter:blur(18px);position:relative;overflow:hidden;
+      transition:transform .28s ease,border-color .28s ease;
+    }
+    .card:hover{transform:translateY(-7px);border-color:rgba(94,177,255,.38)}
+    .card:after{
+      content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+      right:-90px;bottom:-105px;background:var(--violet);filter:blur(65px);opacity:.12
+    }
+    .icon{
+      width:54px;height:54px;border-radius:17px;display:grid;place-items:center;
+      background:linear-gradient(135deg,rgba(28,230,226,.18),rgba(141,92,255,.22));
+      border:1px solid rgba(255,255,255,.13);font-size:1.35rem;
+    }
+    .card h3{font-size:1.25rem;margin:23px 0 12px}
+    .card p{margin:0;color:var(--muted);line-height:1.7}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:steps}
+    .step{counter-increment:steps}
+    .step:before{content:"0" counter(steps);font-weight:800;color:var(--cyan);font-size:.86rem}
+    .step h3{margin:17px 0 10px}
+
+    /* App status */
+    .project-notice{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      width:fit-content;max-width:100%;margin:0 auto 30px;padding:11px 17px;
+      color:#dfe4f2;background:rgba(255,255,255,.055);border:1px solid var(--line);
+      border-radius:999px;text-align:center;font-size:.9rem
+    }
+    .project-notice:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+    .status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .status-card{
+      padding:30px;border-radius:var(--radius);position:relative;overflow:hidden;
+      background:linear-gradient(180deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.25)
+    }
+    .status-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+    .status-card h3{margin:0 0 7px;font-size:1.35rem}
+    .status-version{color:#9da7bb;font-size:.88rem}
+    .status-badge{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 12px;border-radius:999px;background:rgba(28,230,226,.1);border:1px solid rgba(28,230,226,.25);color:#8bf6f2;font-size:.8rem;font-weight:800}
+    .status-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+    .status-card p{color:var(--muted);line-height:1.7;margin:0}
+    .status-meta{display:flex;justify-content:center;gap:12px 30px;flex-wrap:wrap;margin-top:24px;color:#8992a5;font-size:.85rem}
+    .status-meta strong{color:#cdd4e3;font-weight:600}
+
+    /* CTA */
+    .cta{
+      padding:68px 34px;border-radius:36px;text-align:center;position:relative;overflow:hidden;
+      background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.04));
+      border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(20px)
+    }
+    .cta:before,.cta:after{content:"";position:absolute;border-radius:50%;filter:blur(100px);opacity:.18}
+    .cta:before{width:390px;height:390px;background:var(--cyan);left:-190px;bottom:-250px}
+    .cta:after{width:430px;height:430px;background:var(--pink);right:-210px;top:-260px}
+    .cta h2{font-size:clamp(2.5rem,6vw,4.85rem);letter-spacing:-.055em;margin:0 0 18px}
+    .cta p{max-width:650px;margin:0 auto 28px;color:var(--muted);line-height:1.7}
+    .signup{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;
+      max-width:720px;margin:auto;position:relative;z-index:2
+    }
+    .signup input:not([type="checkbox"]){
+      flex:1;min-width:0;padding:16px 20px;border-radius:999px;border:1px solid var(--line);
+      color:#fff;background:#090b11;outline:none;
+    }
+    .signup .email-field,.signup .primary{grid-column:1 / -1}
+    .signup input:not([type="checkbox"]):focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(28,230,226,.08)}
+    .consent{
+      grid-column:1 / -1;display:flex;align-items:flex-start;gap:12px;padding:15px 17px;
+      border:1px solid var(--line);border-radius:18px;background:rgba(0,0,0,.16);
+      color:#cbd2e0;text-align:left;font-size:.84rem;line-height:1.55
+    }
+    .consent input{appearance:none;flex:0 0 20px;width:20px;height:20px;margin:1px 0 0;border:1px solid rgba(255,255,255,.32);border-radius:6px;background:#090b11;cursor:pointer}
+    .consent input:checked{border-color:transparent;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:inset 0 0 0 4px #090b11}
+    .consent input:focus-visible{outline:3px solid rgba(28,230,226,.28);outline-offset:2px}
+    .consent a,.legal-content a{color:#7beeea;text-decoration:underline;text-underline-offset:3px}
+    #formMessage{min-height:24px;margin-top:14px;color:#78eee9;position:relative;z-index:2}
+
+    /* Legal */
+    .legal-section{padding-top:40px}
+    .legal-grid{display:grid;gap:18px}
+    .legal-card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,var(--panel2),var(--panel));overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+    .legal-card summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;cursor:pointer;font-weight:800;font-size:1.15rem;list-style:none}
+    .legal-card summary::-webkit-details-marker{display:none}
+    .legal-card summary:after{content:"+";display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);color:var(--cyan);font-size:1.35rem;transition:transform .2s ease}
+    .legal-card[open] summary:after{transform:rotate(45deg)}
+    .legal-card[open] summary{border-bottom:1px solid var(--line)}
+    .legal-content{padding:28px;color:#c1c9d8;line-height:1.75}
+    .legal-content h3{color:#fff;font-size:1.12rem;margin:30px 0 8px}
+    .legal-content h3:first-child{margin-top:0}
+    .legal-content h4{color:#e5e9f2;margin:22px 0 6px}
+    .legal-content p{margin:0 0 13px}
+    .legal-content ul{margin:8px 0 16px;padding-left:22px}
+    .legal-content address{font-style:normal}
+    .legal-note{padding:15px 17px;border-left:3px solid var(--cyan);border-radius:0 12px 12px 0;background:rgba(28,230,226,.06)}
+
+    footer{padding:48px 0;border-top:1px solid var(--line);color:#8991a5}
+    .footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:22px}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:920px){
+      .navlinks{position:absolute;top:78px;left:20px;right:20px;display:none;flex-direction:column;align-items:stretch;padding:20px;border-radius:20px;background:#0b0e16;border:1px solid var(--line)}
+      .navlinks.open{display:flex}.menu{display:block}.pill{display:none}
+      .hero-grid{grid-template-columns:1fr;gap:48px}.hero{text-align:center}.hero p{margin-inline:auto}.hero-actions,.trust{justify-content:center}
+      .stage{max-width:730px;margin-inline:auto;width:100%}
+      .features{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.status-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(100% - 26px,1180px)}
+      h1{font-size:3.4rem}
+      .features,.steps{grid-template-columns:1fr}
+      .cta{padding:48px 20px}
+      .signup{grid-template-columns:1fr}.signup .email-field,.signup .primary,.consent{grid-column:auto}.signup .primary{width:100%}
+      .brand span{font-size:.95rem}.brand img{width:38px;height:38px}
+      .video-copy{left:18px;bottom:18px}.play{width:62px;height:62px}
+      .trust{gap:12px}
+      .status-top{flex-direction:column}.legal-card summary{padding:20px}.legal-content{padding:22px 20px}
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">
+        <img src="qyventa-icon.png" alt="Qyventa Logo">
+        <span>QYVENTA</span>
+      </a>
+
+      <div class="navlinks" id="navLinks">
+        <a href="#features">Funktionen</a>
+        <a href="#workflow">So funktioniert’s</a>
+        <a href="#status">App-Status</a>
+        <a href="#beta">Beta</a>
+      </div>
+
+      <a class="pill" href="#beta">Warteliste</a>
+      <button class="menu" id="menuBtn" aria-label="Menü öffnen">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> AI-powered creator platform</span>
+          <h1>Deine besten Momente.<br><span class="gradient-text">Automatisch veröffentlicht.</span></h1>
+          <p>Qyventa nimmt auf, erkennt Highlights, schneidet Videos mit KI und veröffentlicht sie auf YouTube, TikTok und weiteren Plattformen — alles in einem Workflow.</p>
+
+          <div class="hero-actions">
+            <a class="primary" href="#beta">Early Access sichern →</a>
+            <button class="secondary" id="openDemo" type="button">Video direkt abspielen</button>
+          </div>
+
+          <div class="trust">
+            <span>✓ Creator & Streamer</span>
+            <span>✓ KI-gestützter Schnitt</span>
+            <span>✓ Multi-Plattform-Publishing</span>
+          </div>
+        </div>
+
+        <div class="stage reveal" id="tiltCard">
+          <div class="video-shell">
+            <div class="browserbar"><i></i><i></i><i></i></div>
+            <div class="video" id="inlineVideo" data-video-id="r0_t5Qmhwr4">
+              <img class="video-thumbnail" src="qyventa-demo-thumbnail.jpg" width="1280" height="720" alt="Vorschaubild der Qyventa Auto-Cut Produktdemo">
+              <div class="gridlines"></div>
+              <button class="play" id="openDemo2" aria-label="YouTube-Video direkt auf der Seite abspielen">▶</button>
+              <div class="video-copy">
+                <strong>Qyventa Auto Cut Demo</strong>
+                <small>YouTube · Produktvorschau</small>
+              </div>
+            </div>
+            <div class="timeline">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Von der Aufnahme bis zum Upload.</h2>
+          <p>Eine zentrale Plattform für alle, die aus Videos schnell hochwertigen Content machen möchten.</p>
+        </div>
+
+        <div class="features">
+          <article class="card reveal"><div class="icon">●</div><h3>Smart Capture</h3><p>Qyventa zeichnet deine Sessions im Hintergrund auf und speichert genau die Momente, die zählen.</p></article>
+          <article class="card reveal"><div class="icon">✦</div><h3>AI Highlight Detection</h3><p>Die KI erkennt spannende Szenen, Reaktionen, Erfolge und starke Momente automatisch.</p></article>
+          <article class="card reveal"><div class="icon">✂</div><h3>Automatic Editing</h3><p>Schnitt, Untertitel, Formatwechsel und Übergänge entstehen passend zur Zielplattform.</p></article>
+          <article class="card reveal"><div class="icon">↗</div><h3>One-Click Publishing</h3><p>Veröffentliche Inhalte direkt auf YouTube, TikTok und weiteren Kanälen.</p></article>
+          <article class="card reveal"><div class="icon">☁</div><h3>Cloud Workspace</h3><p>Projekte, Clips und Vorlagen sind geräteübergreifend verfügbar und sicher organisiert.</p></article>
+          <article class="card reveal"><div class="icon">▥</div><h3>Creator Analytics</h3><p>Verstehe, welche Inhalte funktionieren, und optimiere kommende Uploads datenbasiert.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Create. Capture. Publish.</h2>
+          <p>Qyventa verkürzt den gesamten Content-Prozess auf vier einfache Schritte.</p>
+        </div>
+
+        <div class="steps">
+          <article class="card step reveal"><h3>Aufnehmen</h3><p>Starte deine Session. Qyventa arbeitet leise im Hintergrund.</p></article>
+          <article class="card step reveal"><h3>Erkennen</h3><p>Die KI markiert automatisch die stärksten Momente.</p></article>
+          <article class="card step reveal"><h3>Bearbeiten</h3><p>Wähle Stil, Format und Länge — der Rest läuft automatisch.</p></article>
+          <article class="card step reveal"><h3>Veröffentlichen</h3><p>Verteile den fertigen Content direkt auf deine Plattformen.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="status">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Aktueller <span class="gradient-text">App-Status.</span></h2>
+          <p>Der Entwicklungsstand wird aus einer separaten Statusdatei geladen und automatisch alle 24 Stunden erneut geprüft.</p>
+        </div>
+
+        <div class="project-notice reveal" id="projectNotice">Privates, nicht-kommerzielles Entwicklungsprojekt</div>
+
+        <div class="status-grid" id="statusGrid">
+          <article class="status-card reveal" data-app-id="capture">
+            <div class="status-top">
+              <div><h3 data-field="name">Qyventa Capture</h3><span class="status-version" data-field="version">Version 0.6.2 · Windows-Beta</span></div>
+              <span class="status-badge" data-field="state">In aktiver Entwicklung</span>
+            </div>
+            <p data-field="message">Aufnahme, Demo-Import und Auto-Cut werden aktuell weiter getestet und optimiert.</p>
+          </article>
+
+          <article class="status-card reveal" data-app-id="tote-reden-nicht">
+            <div class="status-top">
+              <div><h3 data-field="name">Tote reden nicht!</h3><span class="status-version" data-field="version">Version 0.1.0 · Windows-Beta</span></div>
+              <span class="status-badge" data-field="state">In aktiver Entwicklung</span>
+            </div>
+            <p data-field="message">Discord-/TeamSpeak-Anbindung und automatische Stummschaltung befinden sich im Beta-Aufbau.</p>
+          </article>
+        </div>
+
+        <div class="status-meta reveal" aria-live="polite">
+          <span>Letzte Statusprüfung: <strong id="statusChecked">wird geladen …</strong></span>
+          <span>Nächste Prüfung: <strong id="statusNextCheck">in 24 Stunden</strong></span>
+          <span>Datenstand: <strong id="statusDataDate">09.08.2026</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="beta">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>Sei von Anfang an dabei.</h2>
+          <p>Trage dich für die Qyventa-Beta ein und erfahre als Erstes, wann der Early Access startet.</p>
+
+          <form
+            class="signup"
+            id="waitlistForm"
+            action="https://formsubmit.co/bascore@gmail.com"
+            method="POST"
+            accept-charset="UTF-8"
+          >
+            <input
+              type="text"
+              id="firstName"
+              name="Vorname"
+              placeholder="Vorname"
+              required
+              autocomplete="given-name"
+              aria-label="Vorname"
+            >
+
+            <input
+              type="text"
+              id="lastName"
+              name="Nachname"
+              placeholder="Nachname"
+              required
+              autocomplete="family-name"
+              aria-label="Nachname"
+            >
+
+            <input
+              class="email-field"
+              type="email"
+              id="email"
+              name="E-Mail-Adresse"
+              placeholder="deine@email.de"
+              required
+              autocomplete="email"
+              aria-label="E-Mail-Adresse"
+            >
+
+            <input type="hidden" name="_subject" value="Neue Anmeldung für die Qyventa-Betawarteliste">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="Anmeldung" value="Qyventa Beta-Warteliste">
+            <input type="hidden" name="Quelle" value="Qyventa Firmenhomepage">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+            <label class="consent" for="privacyConsent">
+              <input type="checkbox" id="privacyConsent" name="DSGVO-Einwilligung" value="erteilt" required>
+              <span>Ich möchte mich unverbindlich vorregistrieren und willige ein, dass Qyventa meinen Vor- und Nachnamen sowie meine E-Mail-Adresse zur Bestätigung der Vorregistrierung und für Informationen zum Start und zu verfügbaren Einladungen verarbeitet. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Details stehen in der <a href="#datenschutz">Datenschutzerklärung</a>.</span>
+            </label>
+
+            <button class="primary" type="submit">Warteliste beitreten</button>
+          </form>
+
+          <div id="formMessage" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-section" id="rechtliches">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Rechtliches.</h2>
+          <p>Transparente Angaben zum privaten Qyventa-Entwicklungsprojekt und zum Umgang mit personenbezogenen Daten.</p>
+        </div>
+
+        <div class="legal-grid">
+          <details class="legal-card reveal" id="impressum">
+            <summary>Impressum</summary>
+            <div class="legal-content">
+              <h3>Anbieter und Verantwortlicher</h3>
+              <address>
+                Sebastian Schröder<br>
+                Hohenzollernstr. 324<br>
+                41063 Mönchengladbach<br>
+                Deutschland
+              </address>
+
+              <h3>Kontakt</h3>
+              <p>Telefon: <a href="tel:+491736384489">0173 6384489</a><br>
+              E-Mail: <a href="mailto:bascore@gmail.com">bascore@gmail.com</a></p>
+
+              <h3>Projektstatus</h3>
+              <p class="legal-note"><strong>Qyventa ist derzeit ein privates, nicht-kommerziell betriebenes Entwicklungsprojekt.</strong> Aktuell werden über diese Website keine Waren oder kostenpflichtigen Dienstleistungen verkauft. Eine kommerzielle Nutzung ist erst nach Fertigstellung der Programme und einer gesonderten Ankündigung vorgesehen.</p>
+            </div>
+          </details>
+
+          <details class="legal-card reveal" id="datenschutz">
+            <summary>Datenschutzerklärung nach DSGVO</summary>
+            <div class="legal-content">
+              <p><strong>Stand: 11. August 2026</strong></p>
+
+              <h3>1. Verantwortlicher</h3>
+              <address>
+                Sebastian Schröder<br>
+                Hohenzollernstr. 324<br>
+                41063 Mönchengladbach<br>
+                Telefon: <a href="tel:+491736384489">0173 6384489</a><br>
+                E-Mail: <a href="mailto:bascore@gmail.com">bascore@gmail.com</a>
+              </address>
+              <p>Ein Datenschutzbeauftragter ist für dieses private Entwicklungsprojekt derzeit nicht bestellt.</p>
+
+              <h3>2. Grundsätze der Datenverarbeitung</h3>
+              <p>Personenbezogene Daten werden nur verarbeitet, soweit dies für den sicheren Betrieb der Website, die Beantwortung von Anfragen oder die gewünschte Vorregistrierung zur Qyventa-Beta erforderlich ist. Es findet keine automatisierte Entscheidungsfindung und kein Profiling statt.</p>
+
+              <h3>3. Aufruf der Website, Hosting und Server-Logdateien</h3>
+              <p>Beim Aufruf der Website können technisch notwendige Verbindungsdaten verarbeitet werden. Dazu gehören insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite oder Datei, Referrer-URL, Browsertyp, Betriebssystem und übertragene Datenmenge. Die Verarbeitung dient der sicheren und stabilen Bereitstellung der Website, der Fehleranalyse sowie der Abwehr von Missbrauch.</p>
+              <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse besteht im sicheren, funktionsfähigen und störungsfreien Betrieb des Webangebots.</p>
+
+              <h4>Cloudflare</h4>
+              <p>Zur Auslieferung und Absicherung der Domain wird Cloudflare (Cloudflare, Inc., USA) eingesetzt. Daten können dabei über Server von Cloudflare geleitet und in Sicherheitsprotokollen verarbeitet werden. Weitere Informationen enthält die <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Cloudflare</a>.</p>
+
+              <h4>GitHub Pages</h4>
+              <p>Die statischen Inhalte können über GitHub Pages bereitgestellt werden. Anbieter sind GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Niederlande, und GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. GitHub kann Nutzungs- und Verbindungsdaten verarbeiten. Weitere Informationen enthält die <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+
+              <h3>4. Beta-Warteliste und Vorregistrierung</h3>
+              <p>Bei einer Vorregistrierung werden die von dir eingegebenen Daten verarbeitet:</p>
+              <ul>
+                <li>Vorname und Nachname,</li>
+                <li>E-Mail-Adresse,</li>
+                <li>Einwilligungsnachweis sowie technisch übermittelte Verbindungsdaten.</li>
+              </ul>
+              <p>Zweck ist die Bestätigung und Verwaltung der unverbindlichen Vorregistrierung sowie die Zusendung von Informationen zum Start, zum Beta-Status und zu verfügbaren Einladungen. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a in Verbindung mit Art. 7 DSGVO.</p>
+              <p>Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per E-Mail an <a href="mailto:bascore@gmail.com">bascore@gmail.com</a> widerrufen werden. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
+
+              <h4>FormSubmit und E-Mail-Zustellung</h4>
+              <p>Das Formular wird über FormSubmit (formsubmit.co) übermittelt und an das angegebene Gmail-Postfach weitergeleitet. FormSubmit erhält die Formulardaten ausschließlich zur technischen Übermittlung. Die Zustellung und Speicherung im E-Mail-Postfach erfolgt über Google/Gmail. Dabei kann eine Verarbeitung außerhalb der Europäischen Union, insbesondere in den USA, nicht ausgeschlossen werden. Weitere Informationen findest du in der <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von FormSubmit</a> und der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+
+              <h3>5. Kontaktaufnahme per E-Mail oder Telefon</h3>
+              <p>Wenn du per E-Mail oder Telefon Kontakt aufnimmst, werden die von dir mitgeteilten Daten zur Bearbeitung der Anfrage verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; soweit die Anfrage auf einen Vertrag oder vorvertragliche Maßnahmen gerichtet ist, zusätzlich Art. 6 Abs. 1 lit. b DSGVO.</p>
+
+              <h3>6. App-Status</h3>
+              <p>Die App-Statusanzeige ruft beim Öffnen der Seite und anschließend automatisch alle 24 Stunden die Datei <code>app-status.json</code> von dieser Website ab. Dabei werden keine zusätzlichen Nutzerprofile erstellt, keine Daten im Browser dauerhaft gespeichert und keine Analyse- oder Werbedienste eingesetzt. Es fallen lediglich die unter Ziffer 3 beschriebenen technisch notwendigen Verbindungsdaten an.</p>
+
+              <h3>7. Eingebettetes YouTube-Video</h3>
+              <p>In der direkt sichtbaren Video-Vorschau der Startseite ist ein Video von YouTube eingebunden. Das lokal gespeicherte Vorschaubild ist sofort sichtbar. Eine Verbindung zu YouTube wird erst hergestellt, wenn du die Schaltfläche „Video direkt abspielen“ oder den Play-Button im Vorschaubild anklickst. Das Video wird anschließend direkt an dieser Stelle über den erweiterten Datenschutzmodus <code>youtube-nocookie.com</code> abgespielt.</p>
+              <p>Beim Laden können insbesondere IP-Adresse, Browser- und Geräteinformationen, Zeitpunkt des Aufrufs sowie Interaktionen mit dem Video an Google Ireland Limited beziehungsweise Google LLC übermittelt werden. YouTube kann dabei Cookies oder vergleichbare Speichertechnologien verwenden. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Wenn du das Video nicht öffnest, wird keine Verbindung zu YouTube hergestellt. Weitere Informationen findest du in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+
+              <h3>8. Cookies, Analyse und externe Schriftarten</h3>
+              <p>Qyventa setzt auf dieser Seite derzeit keine eigenen Analyse-, Marketing- oder Werbe-Cookies ein. Es werden keine externen Schriftarten geladen. Beim freiwilligen Öffnen des YouTube-Videos können YouTube beziehungsweise Google Cookies oder vergleichbare Technologien einsetzen. Technisch notwendige Sicherheitsfunktionen des Hosting- oder Schutzanbieters können im Einzelfall ebenfalls erforderliche Cookies oder vergleichbare Technologien verwenden.</p>
+
+              <h3>9. Empfänger und Drittlandübermittlung</h3>
+              <p>Empfänger personenbezogener Daten können – jeweils nur soweit erforderlich – Cloudflare, GitHub, FormSubmit sowie Google/Gmail und beim freiwilligen Öffnen des Videos YouTube sein. Einige Anbieter haben ihren Sitz in den USA oder verarbeiten Daten dort. Soweit erforderlich, stützen die Anbieter Übermittlungen auf einen Angemessenheitsbeschluss, eine gültige Zertifizierung nach dem EU-US Data Privacy Framework und/oder die Standardvertragsklauseln der EU-Kommission. Trotz dieser Schutzmechanismen kann bei einer Verarbeitung in den USA ein von der EU abweichendes Datenschutzniveau nicht vollständig ausgeschlossen werden.</p>
+
+              <h3>10. Speicherdauer</h3>
+              <p>Daten der Warteliste werden bis zum Widerruf der Einwilligung oder bis zum Wegfall des Informationszwecks gespeichert und anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Daten aus Kontaktanfragen werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen oder berechtigten Gründe für eine weitere Speicherung bestehen. Technische Protokolldaten werden von den eingesetzten Hosting- und Sicherheitsanbietern nur so lange gespeichert, wie dies für Sicherheit, Fehleranalyse und gesetzliche Pflichten erforderlich ist.</p>
+
+              <h3>11. Pflicht zur Bereitstellung</h3>
+              <p>Die Bereitstellung von Daten für die Warteliste ist freiwillig. Ohne Vorname, Nachname, E-Mail-Adresse und Einwilligung kann die Vorregistrierung jedoch nicht durchgeführt werden.</p>
+
+              <h3>12. Minderjährige</h3>
+              <p>Personen unter 16 Jahren sollen die Warteliste nur mit Zustimmung einer sorgeberechtigten Person nutzen.</p>
+
+              <h3>13. Deine Rechte</h3>
+              <p>Nach Maßgabe der gesetzlichen Voraussetzungen hast du insbesondere folgende Rechte:</p>
+              <ul>
+                <li>Auskunft nach Art. 15 DSGVO,</li>
+                <li>Berichtigung nach Art. 16 DSGVO,</li>
+                <li>Löschung nach Art. 17 DSGVO,</li>
+                <li>Einschränkung der Verarbeitung nach Art. 18 DSGVO,</li>
+                <li>Datenübertragbarkeit nach Art. 20 DSGVO,</li>
+                <li>Widerspruch gegen Verarbeitungen nach Art. 21 DSGVO,</li>
+                <li>Widerruf einer Einwilligung nach Art. 7 Abs. 3 DSGVO.</li>
+              </ul>
+              <p>Zur Ausübung dieser Rechte genügt eine Nachricht an <a href="mailto:bascore@gmail.com">bascore@gmail.com</a>.</p>
+
+              <h3>14. Beschwerderecht</h3>
+              <p>Du hast nach Art. 77 DSGVO das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren. Zuständig am Wohnsitz des Verantwortlichen ist insbesondere:</p>
+              <address>
+                Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br>
+                Postfach 20 04 44<br>
+                40102 Düsseldorf<br>
+                Telefon: 0211 38424-0<br>
+                <a href="https://www.ldi.nrw.de/beschwerde" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de/beschwerde</a>
+              </address>
+
+              <h3>15. Sicherheit und Aktualisierung</h3>
+              <p>Es werden angemessene technische und organisatorische Maßnahmen eingesetzt, um personenbezogene Daten vor Verlust, Missbrauch und unbefugtem Zugriff zu schützen. Diese Datenschutzerklärung wird angepasst, wenn sich Funktionen, Dienstleister oder gesetzliche Anforderungen ändern.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Qyventa · Privates, nicht-kommerzielles Entwicklungsprojekt</span>
+      <div class="footer-links">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+        <a href="mailto:bascore@gmail.com">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuBtn=document.getElementById("menuBtn");
+    const navLinks=document.getElementById("navLinks");
+    menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
+
+    // Scroll reveal
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:.13});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    // YouTube-Demo direkt in der sichtbaren Vorschau abspielen
+    const inlineVideo=document.getElementById("inlineVideo");
+    const playInlineVideo=()=>{
+      if(inlineVideo.querySelector("iframe"))return;
+      const iframe=document.createElement("iframe");
+      iframe.title="Qyventa Product Demo auf YouTube";
+      iframe.src=`https://www.youtube-nocookie.com/embed/${inlineVideo.dataset.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy="strict-origin-when-cross-origin";
+      iframe.allowFullscreen=true;
+      inlineVideo.classList.add("playing");
+      inlineVideo.replaceChildren(iframe);
+    };
+    document.getElementById("openDemo").addEventListener("click",()=>{
+      playInlineVideo();
+      document.getElementById("tiltCard").scrollIntoView({behavior:"smooth",block:"center"});
+    });
+    document.getElementById("openDemo2").addEventListener("click",playInlineVideo);
+
+    // Impressum/Datenschutz beim Aufruf über einen Anker automatisch öffnen
+    const openLegalTarget=()=>{
+      const target=document.querySelector(location.hash);
+      if(target?.matches("details.legal-card"))target.open=true;
+    };
+    document.querySelectorAll('a[href="#impressum"],a[href="#datenschutz"]').forEach(link=>{
+      link.addEventListener("click",()=>{
+        const target=document.querySelector(link.getAttribute("href"));
+        if(target?.matches("details.legal-card"))target.open=true;
+      });
+    });
+    addEventListener("hashchange",openLegalTarget);
+    openLegalTarget();
+
+    // App-Status: gleiche Quelle, täglicher Cache-Schlüssel und erneute Prüfung nach 24 Stunden
+    const defaultStatus={
+      updated_at:"2026-08-09T05:20:00Z",
+      project_notice:"Privates, nicht-kommerzielles Entwicklungsprojekt",
+      apps:[
+        {id:"capture",name:"Qyventa Capture",version:"0.6.2",channel:"Windows-Beta",state:"In aktiver Entwicklung",message:"Aufnahme, Demo-Import und Auto-Cut werden aktuell weiter getestet und optimiert."},
+        {id:"tote-reden-nicht",name:"Tote reden nicht!",version:"0.1.0",channel:"Windows-Beta",state:"In aktiver Entwicklung",message:"Discord-/TeamSpeak-Anbindung und automatische Stummschaltung befinden sich im Beta-Aufbau."}
+      ]
+    };
+    const dateTimeFormatter=new Intl.DateTimeFormat("de-DE",{dateStyle:"medium",timeStyle:"short"});
+    const dateFormatter=new Intl.DateTimeFormat("de-DE",{dateStyle:"medium"});
+
+    function renderAppStatus(status,checkedAt){
+      if(status.project_notice)document.getElementById("projectNotice").textContent=status.project_notice;
+      (status.apps||[]).forEach(app=>{
+        const card=document.querySelector(`[data-app-id="${app.id}"]`);
+        if(!card)return;
+        card.querySelector('[data-field="name"]').textContent=app.name;
+        card.querySelector('[data-field="version"]').textContent=`Version ${app.version} · ${app.channel}`;
+        card.querySelector('[data-field="state"]').textContent=app.state;
+        card.querySelector('[data-field="message"]').textContent=app.message;
+      });
+      const nextCheck=new Date(checkedAt.getTime()+24*60*60*1000);
+      const dataDate=new Date(status.updated_at||checkedAt);
+      document.getElementById("statusChecked").textContent=dateTimeFormatter.format(checkedAt);
+      document.getElementById("statusNextCheck").textContent=dateTimeFormatter.format(nextCheck);
+      document.getElementById("statusDataDate").textContent=dateFormatter.format(dataDate);
+    }
+
+    async function refreshAppStatus(){
+      const checkedAt=new Date();
+      const dailyKey=checkedAt.toISOString().slice(0,10);
+      let status=defaultStatus;
+      try{
+        const response=await fetch(`app-status.json?day=${dailyKey}`,{cache:"default"});
+        if(response.ok)status=await response.json();
+      }catch(error){
+        // Lokale Vorschau oder vorübergehender Netzfehler: eingebauten Stand anzeigen.
+      }
+      renderAppStatus(status,checkedAt);
+    }
+    refreshAppStatus();
+    setInterval(refreshAppStatus,24*60*60*1000);
+
+    // Subtle 3D tilt on desktop
+    const tilt=document.getElementById("tiltCard");
+    if(window.matchMedia("(pointer:fine)").matches){
+      tilt.addEventListener("mousemove",e=>{
+        if(inlineVideo.classList.contains("playing"))return;
+        const r=tilt.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width-.5;
+        const y=(e.clientY-r.top)/r.height-.5;
+        tilt.style.transform=`perspective(1000px) rotateY(${x*7}deg) rotateX(${-y*7}deg)`;
+      });
+      tilt.addEventListener("mouseleave",()=>tilt.style.transform="perspective(1000px) rotateY(0) rotateX(0)");
+    }
+
+    // Lightweight particle background
+    const canvas=document.getElementById("particles");
+    const ctx=canvas.getContext("2d");
+    let particles=[];
+    function resize(){
+      canvas.width=innerWidth*devicePixelRatio;
+      canvas.height=innerHeight*devicePixelRatio;
+      canvas.style.width=innerWidth+"px";
+      canvas.style.height=innerHeight+"px";
+      ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+      const count=Math.min(85,Math.floor(innerWidth/18));
+      particles=Array.from({length:count},()=>({
+        x:Math.random()*innerWidth,
+        y:Math.random()*innerHeight,
+        r:Math.random()*1.8+.4,
+        vx:(Math.random()-.5)*.18,
+        vy:(Math.random()-.5)*.18,
+        a:Math.random()*.45+.08
+      }));
+    }
+    function animate(){
+      ctx.clearRect(0,0,innerWidth,innerHeight);
+      particles.forEach(p=>{
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0)p.x=innerWidth;if(p.x>innerWidth)p.x=0;
+        if(p.y<0)p.y=innerHeight;if(p.y>innerHeight)p.y=0;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(117,158,255,${p.a})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    addEventListener("resize",resize);
+    resize();animate();
+  </script>
+</body>
+</html>
