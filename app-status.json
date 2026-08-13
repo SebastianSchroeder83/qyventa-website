@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-09T05:20:00Z",
-  "project_notice": "Privates, nicht-kommerzielles Entwicklungsprojekt",
+  "updated_at": "2026-08-13T11:15:00Z",
+  "project_notice": "Privates Entwicklungsprojekt · aktueller Entwicklungsstand",
   "apps": [
     {
       "id": "capture",
@@ -8,7 +8,47 @@
       "version": "0.6.2",
       "channel": "Windows-Beta",
       "state": "In aktiver Entwicklung",
-      "message": "Aufnahme, Demo-Import und Auto-Cut werden aktuell weiter getestet und optimiert."
+      "message": "Qyventa Capture wird auf einen Demo-First-Workflow umgestellt: CS2-Highlights sollen bevorzugt aus Match-Demos entstehen, während OBS vor allem für Live- und sprachgesteuerte Aufnahmen bleibt. Der Gaming-PC ist über die Capture Bridge im privaten LAN mit dem Qyventa-Server verbunden. Rechenintensive Auto-Cut- und Renderjobs können auf den zweiten PC ausgelagert werden; Clip-Bibliothek, Drag & Drop, Kategorien und Render-Fortschritt werden weiter ausgebaut."
+    },
+    {
+      "id": "qyventa-ai",
+      "name": "Qyventa AI",
+      "version": "0.2.1",
+      "channel": "Lokaler AI Core / Server",
+      "state": "Läuft im Entwicklungssetup",
+      "message": "Qyventa AI läuft lokal auf dem eigenen Qyventa-Server mit Ollama und besitzt dauerhaftes Memory, Qyventa Master Knowledge, Webrecherche mit Quellen sowie Datei-/Code-Agent-Funktionen. AI Core, Render Node und Ollama laufen im lokalen Serverstack. Die AI Academy erzeugt geprüfte Lernberichte; Training Stage 2 bereitet zusätzlich einen kuratierten Datensatz für eine spätere kontrollierte Modellanpassung vor. Die Weboberfläche befindet sich weiterhin im UI-Hotfix/Test."
+    },
+    {
+      "id": "render-node",
+      "name": "Qyventa Render Node",
+      "version": "0.1.0",
+      "channel": "Lokaler Worker / Development",
+      "state": "Online im Entwicklungssetup",
+      "message": "Der zweite PC übernimmt als lokaler Render-Worker rechenintensive Videojobs über FFmpeg und NVIDIA NVENC. Render-Queue, Status, Cache sowie zentrale Ablagen für Demos, Clips und Exporte entlasten den Gaming-PC."
+    },
+    {
+      "id": "qyventa-apple",
+      "name": "Qyventa Apple App",
+      "version": "Preview",
+      "channel": "macOS · Apple Silicon",
+      "state": "In Entwicklung",
+      "message": "Die Qyventa Apple App wird als macOS-Zugang zum Qyventa-Ökosystem aufgebaut. Sie soll vom Mac aus auf Qyventa AI und freigegebene Server-Funktionen zugreifen, Status und Workflows anzeigen und später weitere Creator- und Verwaltungsfunktionen bereitstellen."
+    },
+    {
+      "id": "qyventa-devops",
+      "name": "Qyventa DevOps",
+      "version": "GitHub",
+      "channel": "Repository / Website",
+      "state": "GitHub verbunden",
+      "message": "Der Qyventa-Webauftritt und seine Statusdaten werden im privaten GitHub-Repository versioniert. Die lokale Qyventa AI wird über einen kontrollierten GitHub-Workspace angebunden: Lesen, Pull, Analyse und Patch-Vorbereitung sind vorgesehen; Push und Veröffentlichungen bleiben freigabepflichtig."
+    },
+    {
+      "id": "influ-studio",
+      "name": "Influ Studio",
+      "version": "Preview",
+      "channel": "Qyventa Creator Suite",
+      "state": "Coming Soon",
+      "message": "Influ Studio bringt den Qyventa-AutoCut- und KI-Workflow speziell zu Influencern: Videos aufnehmen oder importieren, per Sprache steuern, automatisch schneiden und für Reels, TikTok, Shorts und weitere Plattformen aufbereiten. Fertige Beiträge werden zuerst zur Vorschau und Freigabe angezeigt und können danach direkt auf die verbundenen Social-Media-Kanäle veröffentlicht werden."
     },
     {
       "id": "tote-reden-nicht",
@@ -16,7 +56,7 @@
       "version": "0.1.0",
       "channel": "Windows-Beta",
       "state": "In aktiver Entwicklung",
-      "message": "Discord-/TeamSpeak-Anbindung und automatische Stummschaltung befinden sich im Beta-Aufbau."
+      "message": "Die separate Voice-Mute-App befindet sich weiter im Beta-Aufbau. Ziel sind automatische Stummschaltung nach dem Tod, einstellbare Verzögerung, kurzer Call-Nachlauf sowie die Zuordnung und Anbindung von Discord und TeamSpeak."
     }
   ]
 }
