@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-13T11:15:00Z",
-  "project_notice": "Privates Entwicklungsprojekt · aktueller Entwicklungsstand",
+  "updated_at": "2026-08-16T05:18:18Z",
+  "project_notice": "Privates Entwicklungsprojekt · Qyventa Tool-Suite wird erweitert",
   "apps": [
     {
       "id": "capture",
@@ -23,8 +23,8 @@
       "name": "Qyventa Render Node",
       "version": "0.1.0",
       "channel": "Lokaler Worker / Development",
-      "state": "Online im Entwicklungssetup",
-      "message": "Der zweite PC übernimmt als lokaler Render-Worker rechenintensive Videojobs über FFmpeg und NVIDIA NVENC. Render-Queue, Status, Cache sowie zentrale Ablagen für Demos, Clips und Exporte entlasten den Gaming-PC."
+      "state": "Verbindung wird stabilisiert",
+      "message": "Der Serverdienst und die Verbindung zwischen PC und Server werden aktuell stabilisiert. Demos werden auf dem PC analysiert, Highlights erkannt und in der Render-Warteschlange gehalten, bis der Render Node wieder erreichbar ist. Ziel bleibt die Auslagerung rechenintensiver FFmpeg- und NVIDIA-NVENC-Jobs auf den Server."
     },
     {
       "id": "qyventa-apple",
@@ -56,7 +56,15 @@
       "version": "0.1.0",
       "channel": "Windows-Beta",
       "state": "In aktiver Entwicklung",
-      "message": "Die separate Voice-Mute-App befindet sich weiter im Beta-Aufbau. Ziel sind automatische Stummschaltung nach dem Tod, einstellbare Verzögerung, kurzer Call-Nachlauf sowie die Zuordnung und Anbindung von Discord und TeamSpeak."
+      "message": "Die separate Voice-Mute-App befindet sich im Beta-Aufbau. Geplant sind automatische Stummschaltung nach dem Tod mit wählbarer Verzögerung von 5, 4, 3, 2 oder 1 Sekunde, ein optionaler kurzer letzter Call sowie die Zuordnung unterschiedlicher Ingame-, Discord- und TeamSpeak-Namen. Die Discord- und TeamSpeak-Anbindungen werden weiter aufgebaut."
+    },
+    {
+      "id": "qyventa-fairplay",
+      "name": "Qyventa FairPlay",
+      "version": "Development",
+      "channel": "Regel- und Musteranalyse",
+      "state": "In Grundlagen- und Entwicklungsphase",
+      "message": "Qyventa FairPlay wird als separates Analyse- und Prüftool aufgebaut. Steam- und Valve-Regelwerke werden als Grundlage ausgewertet; anschließend sollen auffällige Spielmuster technisch erkannt und zur manuellen Prüfung nachvollziehbar aufbereitet werden. Das Tool befindet sich noch nicht in einer öffentlichen Beta und trifft keine automatische Schuldentscheidung."
     }
   ]
 }
