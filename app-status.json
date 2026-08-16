@@ -1,14 +1,30 @@
 {
-  "updated_at": "2026-08-16T05:18:18Z",
-  "project_notice": "Privates Entwicklungsprojekt · Qyventa Tool-Suite wird erweitert",
+  "updated_at": "2026-08-16T07:27:07.343Z",
+  "project_notice": "Privates Entwicklungsprojekt · Capture FIX81 und Render Node FIX81 bereit",
   "apps": [
     {
       "id": "capture",
       "name": "Qyventa Capture",
-      "version": "0.6.2",
-      "channel": "Windows-Beta",
-      "state": "In aktiver Entwicklung",
-      "message": "Qyventa Capture wird auf einen Demo-First-Workflow umgestellt: CS2-Highlights sollen bevorzugt aus Match-Demos entstehen, während OBS vor allem für Live- und sprachgesteuerte Aufnahmen bleibt. Der Gaming-PC ist über die Capture Bridge im privaten LAN mit dem Qyventa-Server verbunden. Rechenintensive Auto-Cut- und Renderjobs können auf den zweiten PC ausgelagert werden; Clip-Bibliothek, Drag & Drop, Kategorien und Render-Fortschritt werden weiter ausgebaut."
+      "version": "0.6.2 FIX81",
+      "channel": "Windows-Beta · PC",
+      "state": "FIX81 bereit",
+      "message": "Der PC-Build FIX81 ersetzt FIX79. DemoDownload erkennt bereits vorhandene Valve-Match-Demos anhand des Sharecodes, startet Downloads unter Windows zuverlässiger über Steam und hält die Warteschlange nach einzelnen Fehlern aktiv. Capture Connect prüft jetzt die echte signierte Verbindung zum Server BashPc unter 192.168.178.20:8765. Demos und Live-Aufnahmen bleiben getrennt; AutoCut, Multikill-Effekte und Timed Voice sind enthalten."
+    },
+    {
+      "id": "demo-download",
+      "name": "Qyventa DemoDownload",
+      "version": "FIX81",
+      "channel": "PC · Steam / Valve Demos",
+      "state": "Im aktuellen Build bereit",
+      "message": "DemoDownload übernimmt Match-Sharecodes, erkennt bereits vorhandene Downloads über die Match-ID und öffnet fehlende Demos direkt in Steam. Einzelne Downloadfehler stoppen die übrige Warteschlange nicht mehr."
+    },
+    {
+      "id": "capture-connect",
+      "name": "Qyventa Capture Connect",
+      "version": "FIX81",
+      "channel": "PC ↔ Server",
+      "state": "Signierte LAN-Verbindung",
+      "message": "Capture Connect verbindet den PC mit dem Server BashPc unter 192.168.178.20:8765. Der Verbindungstest nutzt den signierten /api/connect-Endpunkt statt eines einfachen Porttests und bleibt auf das private lokale Netzwerk beschränkt."
     },
     {
       "id": "qyventa-ai",
@@ -21,10 +37,10 @@
     {
       "id": "render-node",
       "name": "Qyventa Render Node",
-      "version": "0.1.0",
-      "channel": "Lokaler Worker / Development",
-      "state": "Verbindung wird stabilisiert",
-      "message": "Der Serverdienst und die Verbindung zwischen PC und Server werden aktuell stabilisiert. Demos werden auf dem PC analysiert, Highlights erkannt und in der Render-Warteschlange gehalten, bis der Render Node wieder erreichbar ist. Ziel bleibt die Auslagerung rechenintensiver FFmpeg- und NVIDIA-NVENC-Jobs auf den Server."
+      "version": "0.6.2 FIX81",
+      "channel": "Server · BashPc",
+      "state": "FIX81 bereit",
+      "message": "Der Server-Build FIX81 ersetzt FIX80. Render Node lauscht im privaten LAN auf Port 8765, prüft Capture Connect über den signierten /api/connect-Endpunkt und startet als Windows-Aufgabe automatisch. Die Freigabe bleibt auf das lokale Netzwerk beschränkt; FFmpeg-/NVENC-Jobs, Render-Warteschlange und Cache laufen weiter auf dem Server."
     },
     {
       "id": "qyventa-apple",
