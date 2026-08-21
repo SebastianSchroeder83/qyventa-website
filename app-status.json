@@ -1,94 +1,118 @@
 {
-  "updated_at": "2026-08-16T08:29:12.734Z",
-  "project_notice": "Privates Entwicklungsprojekt · Qyventa CEO für iPhone und Apple Watch ergänzt",
+  "updated_at": "2026-08-21T23:38:00Z",
+  "project_notice": "Privates Entwicklungsprojekt · Stand 22.08.2026 · Qyventa wird auf einen serverzentrierten Workflow mit eigener Qyventa AI, AutoCut und mobilen Steuer-Apps ausgebaut",
   "apps": [
     {
       "id": "capture",
       "name": "Qyventa Capture",
-      "version": "0.6.2 FIX81",
-      "channel": "Windows-Beta · PC",
-      "state": "FIX81 bereit",
-      "message": "Der PC-Build FIX81 ersetzt FIX79. DemoDownload erkennt bereits vorhandene Valve-Match-Demos anhand des Sharecodes, startet Downloads unter Windows zuverlässiger über Steam und hält die Warteschlange nach einzelnen Fehlern aktiv. Capture Connect prüft jetzt die echte signierte Verbindung zum Server BashPc unter 192.168.178.20:8765. Demos und Live-Aufnahmen bleiben getrennt; AutoCut, Multikill-Effekte und Timed Voice sind enthalten."
+      "version": "0.8.1 SERVER-AUTOFIND",
+      "channel": "Windows · Gaming-PC",
+      "state": "Läuft · Server-Workflow im Ausbau",
+      "message": "Capture ist auf die Rolle als schlanker PC-Tracker und Szenen-/Highlight-Marker ausgerichtet. Der Gaming-PC soll möglichst wenig rendern: Demos, Marker und Aufnahmedaten gehen an den Qyventa-Server, während Analyse, AutoCut und Rendering dort laufen. Die aktuelle Oberfläche und die Erkennungsoptionen werden weiter professionalisiert."
+    },
+    {
+      "id": "scene-marker",
+      "name": "Qyventa Scene Marker",
+      "version": "0.7.0",
+      "channel": "PC · CS2",
+      "state": "Aktiv im Capture-Workflow",
+      "message": "Der Scene Marker merkt relevante Spielszenen und Übergabepunkte für die spätere Serveranalyse. Ziel ist ein leichter PC-Client ohne unnötige Renderlast; die eigentliche Clip-Erzeugung übernimmt der Server."
     },
     {
       "id": "demo-download",
       "name": "Qyventa DemoDownload",
-      "version": "FIX81",
-      "channel": "PC · Steam / Valve Demos",
-      "state": "Im aktuellen Build bereit",
-      "message": "DemoDownload übernimmt Match-Sharecodes, erkennt bereits vorhandene Downloads über die Match-ID und öffnet fehlende Demos direkt in Steam. Einzelne Downloadfehler stoppen die übrige Warteschlange nicht mehr."
+      "version": "Development",
+      "channel": "Steam / Valve · PC → Server",
+      "state": "Automatisierung wird stabilisiert",
+      "message": "Match-Demos sollen automatisch erkannt, geladen und direkt an den Server übergeben werden. Live-Aufnahmen und Demos bleiben getrennte Hauptkategorien und werden dort nach Datum und Uhrzeit sortiert. Fehlerhafte oder bereits vorhandene Downloads sollen die restliche Warteschlange nicht blockieren."
     },
     {
       "id": "capture-connect",
       "name": "Qyventa Capture Connect",
-      "version": "FIX81",
+      "version": "Server Autofind",
       "channel": "PC ↔ Server",
-      "state": "Signierte LAN-Verbindung",
-      "message": "Capture Connect verbindet den PC mit dem Server BashPc unter 192.168.178.20:8765. Der Verbindungstest nutzt den signierten /api/connect-Endpunkt statt eines einfachen Porttests und bleibt auf das private lokale Netzwerk beschränkt."
+      "state": "Verbindung läuft · Robustheit im Ausbau",
+      "message": "Capture Connect verbindet den Gaming-PC mit dem Qyventa-Server BashPc. Der Server wird im lokalen Netz automatisch gesucht; Upload, Demo-Übergabe und Render-Warteschlange werden auf einen stabilen Server-first-Workflow umgestellt."
     },
     {
-      "id": "qyventa-ai",
-      "name": "Qyventa AI",
-      "version": "0.2.1",
-      "channel": "Lokaler AI Core / Server",
-      "state": "Läuft im Entwicklungssetup",
-      "message": "Qyventa AI läuft lokal auf dem eigenen Qyventa-Server mit Ollama und besitzt dauerhaftes Memory, Qyventa Master Knowledge, Webrecherche mit Quellen sowie Datei-/Code-Agent-Funktionen. AI Core, Render Node und Ollama laufen im lokalen Serverstack. Die AI Academy erzeugt geprüfte Lernberichte; Training Stage 2 bereitet zusätzlich einen kuratierten Datensatz für eine spätere kontrollierte Modellanpassung vor. Die Weboberfläche befindet sich weiterhin im UI-Hotfix/Test."
+      "id": "autocut-studio",
+      "name": "Qyventa AutoCut Studio",
+      "version": "Server Edition · Development",
+      "channel": "Server · Video / Creator",
+      "state": "Kernworkflow im Aufbau",
+      "message": "AutoCut Studio wird als eigenständige Server-App aufgebaut und bleibt übergangsweise zusätzlich in Capture erreichbar. Geplant und teilweise bereits im Workflow berücksichtigt sind Kill- und Clutch-Erkennung, 2K/3K/4K/ACE-Sequenzen, Zeitlupe, Zoom, Headshot-Effekte, Zeitraffer zwischen Multikills, Musik mit verschiebbarem Start/Stop und Loop sowie parallele Exporte für Shorts und Fragmovies."
     },
     {
       "id": "render-node",
       "name": "Qyventa Render Node",
-      "version": "0.6.2 FIX81",
-      "channel": "Server · BashPc",
-      "state": "FIX81 bereit",
-      "message": "Der Server-Build FIX81 ersetzt FIX80. Render Node lauscht im privaten LAN auf Port 8765, prüft Capture Connect über den signierten /api/connect-Endpunkt und startet als Windows-Aufgabe automatisch. Die Freigabe bleibt auf das lokale Netzwerk beschränkt; FFmpeg-/NVENC-Jobs, Render-Warteschlange und Cache laufen weiter auf dem Server."
+      "version": "Server Build",
+      "channel": "Windows Server · BashPc",
+      "state": "Online · Renderpfad wird stabilisiert",
+      "message": "Rendering, FFmpeg/NVENC-Jobs, Cache und Render-Warteschlange gehören auf den Server. Der Server ist als separater Worker eingerichtet; die Verbindung vom PC sowie die automatische Verarbeitung neuer Demos und Clips werden weiter gehärtet. Temporäre Renderdaten sollen automatisch bereinigt werden, damit der vorhandene Speicher effizient genutzt wird."
     },
     {
-      "id": "qyventa-apple",
-      "name": "Qyventa Apple App",
-      "version": "Preview",
-      "channel": "macOS · Apple Silicon",
-      "state": "In Entwicklung",
-      "message": "Die Qyventa Apple App wird als macOS-Zugang zum Qyventa-Ökosystem aufgebaut. Sie soll vom Mac aus auf Qyventa AI und freigegebene Server-Funktionen zugreifen, Status und Workflows anzeigen und später weitere Creator- und Verwaltungsfunktionen bereitstellen."
+      "id": "qyventa-ai",
+      "name": "Qyventa AI",
+      "version": "Qyventa Core · Development",
+      "channel": "Lokale Server-KI",
+      "state": "Eigener Qyventa-AI-Core wird aufgebaut",
+      "message": "Qyventa AI wird als eigene modulare Server-KI aufgebaut. Höchste Priorität hat Video- und AutoCut-Bearbeitung; weitere Fachprofile sind Webentwicklung, Softwareentwicklung, Digital Sales, Counter-Strike 2 sowie Creator- und Social-Media-Workflows. Lernen soll vor allem aus akzeptierten und verworfenen AutoCut-Entscheidungen erfolgen. Cloud-Dienste sind nur als begrenzter Beschleuniger vorgesehen; der Dauerbetrieb soll möglichst lokal erfolgen."
     },
     {
       "id": "qyventa-ceo-apple",
       "name": "Qyventa CEO",
-      "version": "1.0.0",
-      "channel": "iPhone + Apple Watch",
-      "state": "Xcode-Paket erstellt",
-      "message": "Die native SwiftUI-App bündelt eine CEO-Gesamtübersicht, den Zugriff auf die lokale Qyventa AI und einen RFC-6238-Authenticator. Die Apple Watch zeigt Codes und Kurzstatus und kann AI-Fragen per Diktat senden. Vor der Geräteinstallation müssen auf dem Mac das persönliche Apple-Team gewählt und der Xcode-Build signiert werden."
+      "version": "iPhone + Apple Watch · Development",
+      "channel": "iOS / watchOS",
+      "state": "Xcode-Setup und Gerätebuild in Arbeit",
+      "message": "Die CEO-App soll Qyventa AI, Serverstatus, Uploads und zentrale Workflows mobil verfügbar machen und zusätzlich als Authenticator dienen. Die Apple-Watch-App ist Teil desselben Projekts. Aktuell werden Team-/Signierungs- und WatchKit-Buildthemen bereinigt, damit die App auf echten Geräten zuverlässig installiert und genutzt werden kann."
     },
     {
-      "id": "qyventa-devops",
-      "name": "Qyventa DevOps",
-      "version": "GitHub",
-      "channel": "Repository / Website",
-      "state": "GitHub verbunden",
-      "message": "Der Qyventa-Webauftritt und seine Statusdaten werden im privaten GitHub-Repository versioniert. Die lokale Qyventa AI wird über einen kontrollierten GitHub-Workspace angebunden: Lesen, Pull, Analyse und Patch-Vorbereitung sind vorgesehen; Push und Veröffentlichungen bleiben freigabepflichtig."
+      "id": "qyventa-apple",
+      "name": "Qyventa Mac Access",
+      "version": "Development",
+      "channel": "macOS",
+      "state": "Serverzugriff vorgesehen",
+      "message": "Der Mac soll auf Qyventa AI, Serverstatus und freigegebene Qyventa-Workflows zugreifen können. Ziel ist eine einheitliche Bedienung zwischen Gaming-PC, Server, Mac, iPhone und Apple Watch."
+    },
+    {
+      "id": "tote-reden-nicht",
+      "name": "Tote reden nicht!",
+      "version": "Development",
+      "channel": "Windows · Discord / TeamSpeak / CS2",
+      "state": "Discord angebunden · TeamSpeak noch in Arbeit",
+      "message": "Die App soll Teammitglieder nach ihrem Tod automatisch stummschalten, mit wählbarer Verzögerung von 5, 4, 3, 2 oder 1 Sekunde und optionalem kurzem letzten Call. Die Discord-Anbindung funktioniert grundsätzlich; bei TeamSpeak werden aktuell Verbindung, Unique-ID-Zuordnung und die zuverlässige Mute-Synchronisation weiter behoben."
+    },
+    {
+      "id": "qyventa-fairplay",
+      "name": "Qyventa FairPlay",
+      "version": "Development",
+      "channel": "CS2 · Regel- und Musteranalyse",
+      "state": "Interne Entwicklung · keine Beta",
+      "message": "FairPlay wird als separates Analysewerkzeug aufgebaut. Steam- und Valve-Regelwerke dienen als Grundlage; anschließend sollen auffällige Spielmuster nachvollziehbar markiert und zur manuellen Prüfung aufbereitet werden. Es gibt bewusst keine unfertige öffentliche Beta und keine automatische Schuldentscheidung."
+    },
+    {
+      "id": "qyventa-crm",
+      "name": "Qyventa CRM",
+      "version": "CRM 2.0 · Development",
+      "channel": "Sales / Leads",
+      "state": "Funktionsausbau",
+      "message": "Das interne CRM wird in Richtung eines vollständigen Sales-Workspaces ausgebaut. Dazu gehören FormSubmit-/Gmail-Leads, CSV-Import, Löschfunktionen, private Produktbereiche und eine strukturierte Lead- und Pipeline-Verwaltung."
     },
     {
       "id": "influ-studio",
       "name": "Influ Studio",
       "version": "Preview",
       "channel": "Qyventa Creator Suite",
-      "state": "Coming Soon",
-      "message": "Influ Studio bringt den Qyventa-AutoCut- und KI-Workflow speziell zu Influencern: Videos aufnehmen oder importieren, per Sprache steuern, automatisch schneiden und für Reels, TikTok, Shorts und weitere Plattformen aufbereiten. Fertige Beiträge werden zuerst zur Vorschau und Freigabe angezeigt und können danach direkt auf die verbundenen Social-Media-Kanäle veröffentlicht werden."
+      "state": "Geplant",
+      "message": "Influ Studio erweitert den AutoCut- und KI-Workflow für Creator. Inhalte sollen aufgenommen oder importiert, automatisch geschnitten, für Shorts/Reels/TikTok aufbereitet und nach Vorschau und Freigabe auf verbundene Plattformen veröffentlicht werden können."
     },
     {
-      "id": "tote-reden-nicht",
-      "name": "Tote reden nicht!",
-      "version": "0.1.0",
-      "channel": "Windows-Beta",
-      "state": "In aktiver Entwicklung",
-      "message": "Die separate Voice-Mute-App befindet sich im Beta-Aufbau. Geplant sind automatische Stummschaltung nach dem Tod mit wählbarer Verzögerung von 5, 4, 3, 2 oder 1 Sekunde, ein optionaler kurzer letzter Call sowie die Zuordnung unterschiedlicher Ingame-, Discord- und TeamSpeak-Namen. Die Discord- und TeamSpeak-Anbindungen werden weiter aufgebaut."
-    },
-    {
-      "id": "qyventa-fairplay",
-      "name": "Qyventa FairPlay",
-      "version": "Development",
-      "channel": "Regel- und Musteranalyse",
-      "state": "In Grundlagen- und Entwicklungsphase",
-      "message": "Qyventa FairPlay wird als separates Analyse- und Prüftool aufgebaut. Steam- und Valve-Regelwerke werden als Grundlage ausgewertet; anschließend sollen auffällige Spielmuster technisch erkannt und zur manuellen Prüfung nachvollziehbar aufbereitet werden. Das Tool befindet sich noch nicht in einer öffentlichen Beta und trifft keine automatische Schuldentscheidung."
+      "id": "qyventa-devops",
+      "name": "Qyventa DevOps",
+      "version": "GitHub",
+      "channel": "Website / Repositories",
+      "state": "GitHub verbunden",
+      "message": "Die Qyventa-Webseite und ihre Statusdaten werden über GitHub versioniert. Qyventa soll schrittweise auch Entwicklungs- und Veröffentlichungsworkflows zwischen Server und Repository unterstützen, ohne unkontrollierte Änderungen an produktiven Dateien."
     }
   ]
 }
