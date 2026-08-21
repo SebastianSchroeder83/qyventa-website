@@ -1,118 +1,87 @@
 {
-  "updated_at": "2026-08-21T23:38:00Z",
-  "project_notice": "Privates Entwicklungsprojekt · Stand 22.08.2026 · Qyventa wird auf einen serverzentrierten Workflow mit eigener Qyventa AI, AutoCut und mobilen Steuer-Apps ausgebaut",
+  "updated_at": "2026-08-21T23:45:00Z",
+  "project_notice": "Qyventa Entwicklungsstand · 22.08.2026",
   "apps": [
     {
-      "id": "capture",
-      "name": "Qyventa Capture",
-      "version": "0.8.1 SERVER-AUTOFIND",
-      "channel": "Windows · Gaming-PC",
-      "state": "Läuft · Server-Workflow im Ausbau",
-      "message": "Capture ist auf die Rolle als schlanker PC-Tracker und Szenen-/Highlight-Marker ausgerichtet. Der Gaming-PC soll möglichst wenig rendern: Demos, Marker und Aufnahmedaten gehen an den Qyventa-Server, während Analyse, AutoCut und Rendering dort laufen. Die aktuelle Oberfläche und die Erkennungsoptionen werden weiter professionalisiert."
-    },
-    {
-      "id": "scene-marker",
-      "name": "Qyventa Scene Marker",
-      "version": "0.7.0",
-      "channel": "PC · CS2",
-      "state": "Aktiv im Capture-Workflow",
-      "message": "Der Scene Marker merkt relevante Spielszenen und Übergabepunkte für die spätere Serveranalyse. Ziel ist ein leichter PC-Client ohne unnötige Renderlast; die eigentliche Clip-Erzeugung übernimmt der Server."
-    },
-    {
-      "id": "demo-download",
-      "name": "Qyventa DemoDownload",
-      "version": "Development",
-      "channel": "Steam / Valve · PC → Server",
-      "state": "Automatisierung wird stabilisiert",
-      "message": "Match-Demos sollen automatisch erkannt, geladen und direkt an den Server übergeben werden. Live-Aufnahmen und Demos bleiben getrennte Hauptkategorien und werden dort nach Datum und Uhrzeit sortiert. Fehlerhafte oder bereits vorhandene Downloads sollen die restliche Warteschlange nicht blockieren."
-    },
-    {
-      "id": "capture-connect",
-      "name": "Qyventa Capture Connect",
-      "version": "Server Autofind",
-      "channel": "PC ↔ Server",
-      "state": "Verbindung läuft · Robustheit im Ausbau",
-      "message": "Capture Connect verbindet den Gaming-PC mit dem Qyventa-Server BashPc. Der Server wird im lokalen Netz automatisch gesucht; Upload, Demo-Übergabe und Render-Warteschlange werden auf einen stabilen Server-first-Workflow umgestellt."
-    },
-    {
-      "id": "autocut-studio",
-      "name": "Qyventa AutoCut Studio",
-      "version": "Server Edition · Development",
-      "channel": "Server · Video / Creator",
-      "state": "Kernworkflow im Aufbau",
-      "message": "AutoCut Studio wird als eigenständige Server-App aufgebaut und bleibt übergangsweise zusätzlich in Capture erreichbar. Geplant und teilweise bereits im Workflow berücksichtigt sind Kill- und Clutch-Erkennung, 2K/3K/4K/ACE-Sequenzen, Zeitlupe, Zoom, Headshot-Effekte, Zeitraffer zwischen Multikills, Musik mit verschiebbarem Start/Stop und Loop sowie parallele Exporte für Shorts und Fragmovies."
-    },
-    {
-      "id": "render-node",
-      "name": "Qyventa Render Node",
-      "version": "Server Build",
-      "channel": "Windows Server · BashPc",
-      "state": "Online · Renderpfad wird stabilisiert",
-      "message": "Rendering, FFmpeg/NVENC-Jobs, Cache und Render-Warteschlange gehören auf den Server. Der Server ist als separater Worker eingerichtet; die Verbindung vom PC sowie die automatische Verarbeitung neuer Demos und Clips werden weiter gehärtet. Temporäre Renderdaten sollen automatisch bereinigt werden, damit der vorhandene Speicher effizient genutzt wird."
-    },
-    {
-      "id": "qyventa-ai",
-      "name": "Qyventa AI",
-      "version": "Qyventa Core · Development",
-      "channel": "Lokale Server-KI",
-      "state": "Eigener Qyventa-AI-Core wird aufgebaut",
-      "message": "Qyventa AI wird als eigene modulare Server-KI aufgebaut. Höchste Priorität hat Video- und AutoCut-Bearbeitung; weitere Fachprofile sind Webentwicklung, Softwareentwicklung, Digital Sales, Counter-Strike 2 sowie Creator- und Social-Media-Workflows. Lernen soll vor allem aus akzeptierten und verworfenen AutoCut-Entscheidungen erfolgen. Cloud-Dienste sind nur als begrenzter Beschleuniger vorgesehen; der Dauerbetrieb soll möglichst lokal erfolgen."
-    },
-    {
       "id": "qyventa-ceo-apple",
+      "group": "development",
       "name": "Qyventa CEO",
-      "version": "iPhone + Apple Watch · Development",
-      "channel": "iOS / watchOS",
-      "state": "Xcode-Setup und Gerätebuild in Arbeit",
-      "message": "Die CEO-App soll Qyventa AI, Serverstatus, Uploads und zentrale Workflows mobil verfügbar machen und zusätzlich als Authenticator dienen. Die Apple-Watch-App ist Teil desselben Projekts. Aktuell werden Team-/Signierungs- und WatchKit-Buildthemen bereinigt, damit die App auf echten Geräten zuverlässig installiert und genutzt werden kann."
+      "version": "Development",
+      "channel": "iPhone + Apple Watch",
+      "state": "In Entwicklung",
+      "message": "Mobile CEO-Zentrale für Qyventa AI, Serverstatus, Uploads, Authenticator und zentrale Qyventa-Workflows. iPhone- und Apple-Watch-App werden gemeinsam weiterentwickelt und für den zuverlässigen Gerätebetrieb vorbereitet."
     },
     {
-      "id": "qyventa-apple",
-      "name": "Qyventa Mac Access",
+      "id": "server-autocut",
+      "group": "development",
+      "name": "Server/AutoCut",
       "version": "Development",
-      "channel": "macOS",
-      "state": "Serverzugriff vorgesehen",
-      "message": "Der Mac soll auf Qyventa AI, Serverstatus und freigegebene Qyventa-Workflows zugreifen können. Ziel ist eine einheitliche Bedienung zwischen Gaming-PC, Server, Mac, iPhone und Apple Watch."
-    },
-    {
-      "id": "tote-reden-nicht",
-      "name": "Tote reden nicht!",
-      "version": "Development",
-      "channel": "Windows · Discord / TeamSpeak / CS2",
-      "state": "Discord angebunden · TeamSpeak noch in Arbeit",
-      "message": "Die App soll Teammitglieder nach ihrem Tod automatisch stummschalten, mit wählbarer Verzögerung von 5, 4, 3, 2 oder 1 Sekunde und optionalem kurzem letzten Call. Die Discord-Anbindung funktioniert grundsätzlich; bei TeamSpeak werden aktuell Verbindung, Unique-ID-Zuordnung und die zuverlässige Mute-Synchronisation weiter behoben."
+      "channel": "Qyventa Server",
+      "state": "In Entwicklung",
+      "message": "Der Qyventa-Server übernimmt Analyse, AutoCut, Rendering, Render-Warteschlange und Clip-Verarbeitung. AutoCut Studio wird als eigenständige Server-App aufgebaut und verarbeitet Demos und Aufnahmen mit Multikill-, ACE-, Clutch-, Zoom-, Slow-Motion-, Musik- und Export-Workflows."
     },
     {
       "id": "qyventa-fairplay",
+      "group": "development",
       "name": "Qyventa FairPlay",
       "version": "Development",
-      "channel": "CS2 · Regel- und Musteranalyse",
-      "state": "Interne Entwicklung · keine Beta",
-      "message": "FairPlay wird als separates Analysewerkzeug aufgebaut. Steam- und Valve-Regelwerke dienen als Grundlage; anschließend sollen auffällige Spielmuster nachvollziehbar markiert und zur manuellen Prüfung aufbereitet werden. Es gibt bewusst keine unfertige öffentliche Beta und keine automatische Schuldentscheidung."
+      "channel": "CS2",
+      "state": "In Entwicklung",
+      "message": "FairPlay wird als separates Analysewerkzeug für nachvollziehbare Regel- und Musteranalyse aufgebaut. Auffällige Spielmuster werden zur manuellen Prüfung aufbereitet; es gibt keine automatische Schuldentscheidung."
     },
     {
-      "id": "qyventa-crm",
-      "name": "Qyventa CRM",
-      "version": "CRM 2.0 · Development",
-      "channel": "Sales / Leads",
-      "state": "Funktionsausbau",
-      "message": "Das interne CRM wird in Richtung eines vollständigen Sales-Workspaces ausgebaut. Dazu gehören FormSubmit-/Gmail-Leads, CSV-Import, Löschfunktionen, private Produktbereiche und eine strukturierte Lead- und Pipeline-Verwaltung."
+      "id": "tote-reden-nicht",
+      "group": "development",
+      "name": "Tote reden nicht!",
+      "version": "0.1.0",
+      "channel": "Windows-Beta",
+      "state": "In Entwicklung",
+      "message": "Die Voice-Mute-App soll tote Teammitglieder nach wählbarer Verzögerung automatisch stummschalten und Discord, TeamSpeak sowie CS2-Zuordnungen zusammenführen. Discord funktioniert grundsätzlich; TeamSpeak und die zuverlässige Mute-Synchronisation werden weiter stabilisiert."
     },
     {
       "id": "influ-studio",
+      "group": "development",
       "name": "Influ Studio",
       "version": "Preview",
       "channel": "Qyventa Creator Suite",
-      "state": "Geplant",
-      "message": "Influ Studio erweitert den AutoCut- und KI-Workflow für Creator. Inhalte sollen aufgenommen oder importiert, automatisch geschnitten, für Shorts/Reels/TikTok aufbereitet und nach Vorschau und Freigabe auf verbundene Plattformen veröffentlicht werden können."
+      "state": "In Entwicklung",
+      "message": "Influ Studio erweitert Qyventa für Creator: Inhalte aufnehmen oder importieren, automatisch schneiden, für Shorts, Reels und TikTok aufbereiten und nach Vorschau und Freigabe auf verbundene Plattformen veröffentlichen."
     },
     {
-      "id": "qyventa-devops",
-      "name": "Qyventa DevOps",
-      "version": "GitHub",
-      "channel": "Website / Repositories",
-      "state": "GitHub verbunden",
-      "message": "Die Qyventa-Webseite und ihre Statusdaten werden über GitHub versioniert. Qyventa soll schrittweise auch Entwicklungs- und Veröffentlichungsworkflows zwischen Server und Repository unterstützen, ohne unkontrollierte Änderungen an produktiven Dateien."
+      "id": "capture-connect",
+      "group": "development",
+      "name": "Qyventa Capture Connect",
+      "version": "Server Autofind",
+      "channel": "PC ↔ Server",
+      "state": "In Entwicklung",
+      "message": "Capture Connect verbindet den Gaming-PC mit dem Qyventa-Server und übernimmt Server-Autofind, Upload, Demo-Übergabe und die Anbindung an die Render-Warteschlange."
+    },
+    {
+      "id": "qyventa-ai",
+      "group": "development",
+      "name": "Qyventa AI",
+      "version": "Qyventa Core",
+      "channel": "Server-KI",
+      "state": "In Entwicklung",
+      "message": "Qyventa AI wird als eigene modulare Server-KI aufgebaut. Priorität haben Video- und AutoCut-Bearbeitung, Programmierung, Webentwicklung, Digital Sales, CS2 sowie Creator- und Social-Media-Workflows."
+    },
+    {
+      "id": "demo-download",
+      "group": "development",
+      "name": "Qyventa DemoDownload",
+      "version": "Development",
+      "channel": "Steam / Valve",
+      "state": "In Entwicklung",
+      "message": "Match-Demos sollen automatisch erkannt, geladen, sauber zugeordnet und direkt an den Qyventa-Server übergeben werden. Bereits vorhandene oder fehlerhafte Downloads dürfen die restliche Warteschlange nicht blockieren."
+    },
+    {
+      "id": "capture",
+      "group": "working",
+      "name": "Qyventa Capture",
+      "version": "0.8.1 SERVER-AUTOFIND",
+      "channel": "Windows · Gaming-PC",
+      "state": "Funktioniert",
+      "message": "Qyventa Capture läuft als PC-Client für Szenen- und Highlight-Erfassung. Der Gaming-PC liefert Marker, Demos und Aufnahmedaten an den Server; die rechenintensive Verarbeitung wird schrittweise vollständig auf den Server verlagert."
     }
   ]
 }
