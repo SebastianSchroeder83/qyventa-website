@@ -1,7 +1,25 @@
 {
-  "updated_at": "2026-08-21T23:45:00Z",
-  "project_notice": "Qyventa Entwicklungsstand · 22.08.2026",
+  "updated_at": "2026-10-12T18:24:34Z",
+  "project_notice": "Qyventa Studio · Update vom 12.10.2026",
   "apps": [
+    {
+      "id": "qyventa-publishing",
+      "group": "development",
+      "name": "Qyventa Publishing",
+      "version": "Prototyp",
+      "channel": "YouTube · TikTok · Instagram",
+      "state": "Anbindungen vorbereitet",
+      "message": "YouTube-OAuth und Upload sind integriert. TikTok-Upload ins Postfach und Instagram-Reel-Veröffentlichung sind als Adapter vorbereitet. Developer-Apps, Kontofreigaben und echte Plattformtests fehlen noch. TikTok Direct Posting ist noch nicht eingerichtet."
+    },
+    {
+      "id": "qyventa-studio-obs-core",
+      "group": "development",
+      "name": "Qyventa Studio",
+      "version": "OBS-Core Entwicklungsbuild",
+      "channel": "Windows · Eigenständige App",
+      "state": "Build erstellt",
+      "message": "Eigenständiger Windows-Build auf dem vollständigen OBS-Kern mit Szenen, Quellen, Vorschau, Mixer, Filtern, Streaming und integrierter Qyventa-Seitenleiste. Eingebettetes Backend mit Videoimport, Analyse und AutoCut lokal getestet. Geräte-, Livestream- und Social-Media-Kontotests stehen noch aus."
+    },
     {
       "id": "qyventa-ceo-apple",
       "group": "development",
