@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-12T18:24:34Z",
-  "project_notice": "Qyventa Studio · Update vom 12.10.2026",
+  "updated_at": "2026-10-13T23:15:42.866Z",
+  "project_notice": "Qyventa Studio · Server-Render geprüft am 14.10.2026",
   "apps": [
     {
       "id": "qyventa-publishing",
@@ -18,7 +18,7 @@
       "version": "OBS-Core Entwicklungsbuild",
       "channel": "Windows · Eigenständige App",
       "state": "Build erstellt",
-      "message": "Eigenständiger Windows-Build auf dem vollständigen OBS-Kern mit Szenen, Quellen, Vorschau, Mixer, Filtern, Streaming und integrierter Qyventa-Seitenleiste. Eingebettetes Backend mit Videoimport, Analyse und AutoCut lokal getestet. Geräte-, Livestream- und Social-Media-Kontotests stehen noch aus."
+      "message": "Eigenständiger Windows-Build auf dem vollständigen OBS-Kern mit Szenen, Quellen, Vorschau, Mixer, Filtern, Streaming und integrierter Qyventa-Seitenleiste. Eingebettetes Backend mit Videoimport, Analyse und AutoCut lokal getestet. Geräte-, Livestream- und Social-Media-Kontotests stehen noch aus. Der Server-Render ist jetzt erfolgreich geprüft. Der nächste Schritt ist ein vollständiger Test beim Spielen auf dem Gaming-PC."
     },
     {
       "id": "qyventa-ceo-apple",
@@ -33,10 +33,10 @@
       "id": "server-autocut",
       "group": "development",
       "name": "Server/AutoCut",
-      "version": "Development",
+      "version": "Render Node 0.1.3",
       "channel": "Qyventa Server",
-      "state": "In Entwicklung",
-      "message": "Der Qyventa-Server übernimmt Analyse, AutoCut, Rendering, Render-Warteschlange und Clip-Verarbeitung. AutoCut Studio wird als eigenständige Server-App aufgebaut und verarbeitet Demos und Aufnahmen mit Multikill-, ACE-, Clutch-, Zoom-, Slow-Motion-, Musik- und Export-Workflows."
+      "state": "Server-Render getestet",
+      "message": "Der Server-Render wurde erfolgreich getestet: Testclip übertragen, auf dem Server mit CPU-Fallback verarbeitet und als MP4 zurückgeladen. Bild und Ton lassen sich vollständig fehlerfrei dekodieren. Der vollständige Ablauf beim Spielen vom Gaming-PC aus und der separate VideoStudio-Node stehen noch zur Prüfung aus."
     },
     {
       "id": "qyventa-fairplay",
@@ -80,8 +80,8 @@
       "name": "Qyventa AI",
       "version": "Qyventa Core",
       "channel": "Server-KI",
-      "state": "In Entwicklung",
-      "message": "Qyventa AI wird als eigene modulare Server-KI aufgebaut. Priorität haben Video- und AutoCut-Bearbeitung, Programmierung, Webentwicklung, Digital Sales, CS2 sowie Creator- und Social-Media-Workflows."
+      "state": "Server-KI erreichbar",
+      "message": "Die lokale Server-KI ist erreichbar und hat im Verbindungstest geantwortet. Die Verarbeitung von Spielaufnahmen und die automatische Highlight-Auswahl im vollständigen Gaming-Ablauf stehen noch zur Prüfung aus."
     },
     {
       "id": "demo-download",
