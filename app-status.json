@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-13T23:15:42.866Z",
-  "project_notice": "Qyventa Studio · Server-Render geprüft am 14.10.2026",
+  "updated_at": "2026-10-20T11:26:10.501747+00:00",
+  "project_notice": "Qyventa Creator Studio · Update vom 20.10.2026",
   "apps": [
     {
       "id": "qyventa-publishing",
@@ -14,11 +14,11 @@
     {
       "id": "qyventa-studio-obs-core",
       "group": "development",
-      "name": "Qyventa Studio",
-      "version": "OBS-Core Entwicklungsbuild",
-      "channel": "Windows · Eigenständige App",
-      "state": "Build erstellt",
-      "message": "Eigenständiger Windows-Build auf dem vollständigen OBS-Kern mit Szenen, Quellen, Vorschau, Mixer, Filtern, Streaming und integrierter Qyventa-Seitenleiste. Eingebettetes Backend mit Videoimport, Analyse und AutoCut lokal getestet. Geräte-, Livestream- und Social-Media-Kontotests stehen noch aus. Der Server-Render ist jetzt erfolgreich geprüft. Der nächste Schritt ist ein vollständiger Test beim Spielen auf dem Gaming-PC."
+      "name": "Qyventa Creator Studio",
+      "version": "0.7.5-Creator",
+      "channel": "Windows · Aufnahme und Creator Studio",
+      "state": "App aktualisiert",
+      "message": "Capture und Creator Studio sind verbunden. Lokale Videos können ausgewählt und als Clips aufbereitet werden. Der Server-Schnitt mit korrigierter Dateizuordnung wurde am 20.10.2026 mit einem Testclip geprüft. Eine automatische Veröffentlichung auf TikTok oder Instagram ist damit nicht freigeschaltet."
     },
     {
       "id": "qyventa-ceo-apple",
@@ -35,8 +35,8 @@
       "name": "Server/AutoCut",
       "version": "Render Node 0.1.3",
       "channel": "Qyventa Server",
-      "state": "Server-Render getestet",
-      "message": "Der Server-Render wurde erfolgreich getestet: Testclip übertragen, auf dem Server mit CPU-Fallback verarbeitet und als MP4 zurückgeladen. Bild und Ton lassen sich vollständig fehlerfrei dekodieren. Der vollständige Ablauf beim Spielen vom Gaming-PC aus und der separate VideoStudio-Node stehen noch zur Prüfung aus."
+      "state": "Server-Schnitt geprüft",
+      "message": "Ein vollständiger Testschnitt wurde am 20.10.2026 auf dem Qyventa-Server mit CPU-Fallback erstellt und als MP4 zurückgeladen. Die Dateipfadzuordnung für Clip- und Musikübertragungen wurde im Client korrigiert."
     },
     {
       "id": "qyventa-fairplay",
@@ -59,11 +59,11 @@
     {
       "id": "influ-studio",
       "group": "development",
-      "name": "Influ Studio",
-      "version": "Preview",
-      "channel": "Qyventa Creator Suite",
-      "state": "In Entwicklung",
-      "message": "Influ Studio erweitert Qyventa für Creator: Inhalte aufnehmen oder importieren, automatisch schneiden, für Shorts, Reels und TikTok aufbereiten und nach Vorschau und Freigabe auf verbundene Plattformen veröffentlichen."
+      "name": "Creator Studio · Videoimport",
+      "version": "In Creator Studio integriert",
+      "channel": "Gaming · Trading Cards · Kochen und mehr",
+      "state": "Lokaler Videoimport",
+      "message": "Lokale Aufnahmen auswählen, Ausschnitte festlegen und ein Video im gewünschten Format erstellen. Handyvideos werden zuvor auf den PC übertragen. Die Szene wird bewusst gewählt; eine automatische Inhaltserkennung für beliebige Videos wird nicht zugesagt."
     },
     {
       "id": "capture-connect",
@@ -95,11 +95,11 @@
     {
       "id": "capture",
       "group": "working",
-      "name": "Qyventa Capture",
-      "version": "0.8.1 SERVER-AUTOFIND",
-      "channel": "Windows · Gaming-PC",
-      "state": "Funktioniert",
-      "message": "Qyventa Capture läuft als PC-Client für Szenen- und Highlight-Erfassung. Der Gaming-PC liefert Marker, Demos und Aufnahmedaten an den Server; die rechenintensive Verarbeitung wird schrittweise vollständig auf den Server verlagert."
+      "name": "Capture im Creator Studio",
+      "version": "In Creator Studio integriert",
+      "channel": "Windows · Aufnahme und Stream",
+      "state": "Studio verbunden",
+      "message": "Aufnahme und Stream stehen im integrierten Studio bereit. Gaming-Clips und lokale Aufnahmen werden im Creator Studio ausgewählt und aufbereitet."
     }
   ]
 }
