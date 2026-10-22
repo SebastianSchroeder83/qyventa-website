@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T14:25:00+02:00",
+  "updated_at": "2026-10-22T14:32:00+02:00",
   "project_notice": "Qyventa Systemstatus · Aktualisiert am 22.10.2026 · KI-Server online",
   "server": {
     "id": "bashpc-ai",
@@ -18,7 +18,7 @@
       "version": "Qyventa Core",
       "channel": "BashPc · lokale Server-KI",
       "state": "Online",
-      "message": "Die lokale Qyventa AI auf BashPc ist online und erreichbar. Sie steht für die CEO-App und die weitere Analyse- und AutoCut-Integration bereit."
+      "message": "Die lokale Qyventa AI auf BashPc ist online und erreichbar. Sie steht für die weitere Analyse, Highlight-Erkennung und AutoCut-Integration bereit."
     },
     {
       "id": "server-autocut",
