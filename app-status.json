@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T14:30:00+02:00",
+  "updated_at": "2026-10-22T14:25:00+02:00",
   "project_notice": "Qyventa Systemstatus · Aktualisiert am 22.10.2026 · KI-Server online",
   "server": {
     "id": "bashpc-ai",
@@ -64,15 +64,6 @@
       "channel": "Gaming-PC ↔ BashPc",
       "state": "Verbunden",
       "message": "Capture Connect prüft die echte signierte Verbindung, findet den Server im lokalen Netzwerk und übergibt Uploads und Demos an den Render Node."
-    },
-    {
-      "id": "qyventa-ceo-apple",
-      "group": "development",
-      "name": "Qyventa CEO",
-      "version": "1.0.0 Development",
-      "channel": "iPhone + Apple Watch",
-      "state": "Xcode-Projekt bereit",
-      "message": "CEO-Dashboard, Qyventa AI, Serverstatus und TOTP-Authenticator sind für iPhone und Apple Watch angelegt. Apple-Team, Signierung und Gerätetest erfolgen in Xcode."
     },
     {
       "id": "tote-reden-nicht",
