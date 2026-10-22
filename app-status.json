@@ -1,42 +1,87 @@
 {
-  "updated_at": "2026-10-20T11:26:10.501747+00:00",
-  "project_notice": "Qyventa Creator Studio · Update vom 20.10.2026",
+  "updated_at": "2026-10-22T14:30:00+02:00",
+  "project_notice": "Qyventa Systemstatus · Aktualisiert am 22.10.2026 · KI-Server online",
+  "server": {
+    "id": "bashpc-ai",
+    "name": "Qyventa KI-Server",
+    "host": "BashPc",
+    "version": "Qyventa AI · Render Node FIX81",
+    "state": "online",
+    "label": "ONLINE",
+    "message": "Der lokale KI-Server ist online. Qyventa AI, Capture Connect und der Render Node sind im lokalen Qyventa-Netz erreichbar."
+  },
   "apps": [
     {
-      "id": "qyventa-publishing",
+      "id": "qyventa-ai",
       "group": "development",
-      "name": "Qyventa Publishing",
-      "version": "Prototyp",
-      "channel": "YouTube · TikTok · Instagram",
-      "state": "Anbindungen vorbereitet",
-      "message": "YouTube-OAuth und Upload sind integriert. TikTok-Upload ins Postfach und Instagram-Reel-Veröffentlichung sind als Adapter vorbereitet. Developer-Apps, Kontofreigaben und echte Plattformtests fehlen noch. TikTok Direct Posting ist noch nicht eingerichtet."
+      "name": "Qyventa AI",
+      "version": "Qyventa Core",
+      "channel": "BashPc · lokale Server-KI",
+      "state": "Online",
+      "message": "Die lokale Qyventa AI auf BashPc ist online und erreichbar. Sie steht für die CEO-App und die weitere Analyse- und AutoCut-Integration bereit."
+    },
+    {
+      "id": "server-autocut",
+      "group": "development",
+      "name": "Server / AutoCut",
+      "version": "Render Node FIX81",
+      "channel": "BashPc · Port 8765",
+      "state": "Online und bereit",
+      "message": "Der Render Node läuft auf BashPc. Die signierte PC-Server-Verbindung wurde geprüft; Upload, Demo-Übergabe und Render-Warteschlange sind für den lokalen Betrieb vorbereitet."
     },
     {
       "id": "qyventa-studio-obs-core",
       "group": "development",
       "name": "Qyventa Creator Studio",
       "version": "0.7.5-Creator",
-      "channel": "Windows · Aufnahme und Creator Studio",
-      "state": "App aktualisiert",
-      "message": "Capture und Creator Studio sind verbunden. Lokale Videos können ausgewählt und als Clips aufbereitet werden. Der Server-Schnitt mit korrigierter Dateizuordnung wurde am 20.10.2026 mit einem Testclip geprüft. Eine automatische Veröffentlichung auf TikTok oder Instagram ist damit nicht freigeschaltet."
+      "channel": "Windows · Capture und AutoCut",
+      "state": "Aktueller Entwicklungsstand",
+      "message": "Capture, Clip-Auswahl, lokale Videoimporte und AutoCut sind im Creator Studio gebündelt. Der Server kann rechenintensive Verarbeitung übernehmen."
+    },
+    {
+      "id": "capture",
+      "group": "development",
+      "name": "Qyventa Capture",
+      "version": "0.6.2 FIX81",
+      "channel": "Windows-Beta",
+      "state": "Verbindung geprüft",
+      "message": "Der aktuelle PC-Build nutzt Capture Connect FIX81. Die signierte Verbindung zu BashPc und der Übergabeweg zum Server wurden erfolgreich getestet."
+    },
+    {
+      "id": "demo-download",
+      "group": "development",
+      "name": "Qyventa DemoDownload",
+      "version": "FIX81",
+      "channel": "Steam / Valve · CS2",
+      "state": "Fehler behoben",
+      "message": "Bereits vorhandene Match-Demos werden erkannt. Steam-Downloads starten zuverlässiger, und ein fehlerhafter Kandidat stoppt nicht mehr die gesamte Warteschlange."
+    },
+    {
+      "id": "capture-connect",
+      "group": "development",
+      "name": "Qyventa Capture Connect",
+      "version": "FIX81",
+      "channel": "Gaming-PC ↔ BashPc",
+      "state": "Verbunden",
+      "message": "Capture Connect prüft die echte signierte Verbindung, findet den Server im lokalen Netzwerk und übergibt Uploads und Demos an den Render Node."
     },
     {
       "id": "qyventa-ceo-apple",
       "group": "development",
       "name": "Qyventa CEO",
-      "version": "Development",
+      "version": "1.0.0 Development",
       "channel": "iPhone + Apple Watch",
-      "state": "In Entwicklung",
-      "message": "Mobile CEO-Zentrale für Qyventa AI, Serverstatus, Uploads, Authenticator und zentrale Qyventa-Workflows. iPhone- und Apple-Watch-App werden gemeinsam weiterentwickelt und für den zuverlässigen Gerätebetrieb vorbereitet."
+      "state": "Xcode-Projekt bereit",
+      "message": "CEO-Dashboard, Qyventa AI, Serverstatus und TOTP-Authenticator sind für iPhone und Apple Watch angelegt. Apple-Team, Signierung und Gerätetest erfolgen in Xcode."
     },
     {
-      "id": "server-autocut",
+      "id": "tote-reden-nicht",
       "group": "development",
-      "name": "Server/AutoCut",
-      "version": "Render Node 0.1.3",
-      "channel": "Qyventa Server",
-      "state": "Server-Schnitt geprüft",
-      "message": "Ein vollständiger Testschnitt wurde am 20.10.2026 auf dem Qyventa-Server mit CPU-Fallback erstellt und als MP4 zurückgeladen. Die Dateipfadzuordnung für Clip- und Musikübertragungen wurde im Client korrigiert."
+      "name": "Tote reden nicht!",
+      "version": "0.1.0",
+      "channel": "Windows · Discord / TeamSpeak",
+      "state": "In Entwicklung",
+      "message": "Die Voice-App verbindet CS2-Lobby und Sprachkanal. Discord funktioniert grundsätzlich; automatische Lobby-Zuordnung, TeamSpeak und stabile Mute-Synchronisation werden weiter ausgebaut."
     },
     {
       "id": "qyventa-fairplay",
@@ -45,61 +90,25 @@
       "version": "Development",
       "channel": "CS2",
       "state": "In Entwicklung",
-      "message": "FairPlay wird als separates Analysewerkzeug für nachvollziehbare Regel- und Musteranalyse aufgebaut. Auffällige Spielmuster werden zur manuellen Prüfung aufbereitet; es gibt keine automatische Schuldentscheidung."
+      "message": "FairPlay bereitet auffällige Spielmuster für eine nachvollziehbare manuelle Prüfung auf. Es trifft keine automatische Schuldentscheidung."
     },
     {
-      "id": "tote-reden-nicht",
+      "id": "qyventa-publishing",
       "group": "development",
-      "name": "Tote reden nicht!",
-      "version": "0.1.0",
-      "channel": "Windows-Beta",
-      "state": "In Entwicklung",
-      "message": "Die Voice-Mute-App soll tote Teammitglieder nach wählbarer Verzögerung automatisch stummschalten und Discord, TeamSpeak sowie CS2-Zuordnungen zusammenführen. Discord funktioniert grundsätzlich; TeamSpeak und die zuverlässige Mute-Synchronisation werden weiter stabilisiert."
+      "name": "Qyventa Publishing",
+      "version": "Prototyp",
+      "channel": "YouTube · TikTok · Instagram",
+      "state": "Anbindungen vorbereitet",
+      "message": "YouTube-OAuth und Upload sind integriert. TikTok- und Instagram-Anbindungen sind vorbereitet; Plattformfreigaben und echte Veröffentlichungstests stehen noch aus."
     },
     {
       "id": "influ-studio",
       "group": "development",
       "name": "Creator Studio · Videoimport",
-      "version": "In Creator Studio integriert",
-      "channel": "Gaming · Trading Cards · Kochen und mehr",
+      "version": "Integriert",
+      "channel": "Gaming · Trading Cards · Kochen",
       "state": "Lokaler Videoimport",
-      "message": "Lokale Aufnahmen auswählen, Ausschnitte festlegen und ein Video im gewünschten Format erstellen. Handyvideos werden zuvor auf den PC übertragen. Die Szene wird bewusst gewählt; eine automatische Inhaltserkennung für beliebige Videos wird nicht zugesagt."
-    },
-    {
-      "id": "capture-connect",
-      "group": "development",
-      "name": "Qyventa Capture Connect",
-      "version": "Server Autofind",
-      "channel": "PC ↔ Server",
-      "state": "In Entwicklung",
-      "message": "Capture Connect verbindet den Gaming-PC mit dem Qyventa-Server und übernimmt Server-Autofind, Upload, Demo-Übergabe und die Anbindung an die Render-Warteschlange."
-    },
-    {
-      "id": "qyventa-ai",
-      "group": "development",
-      "name": "Qyventa AI",
-      "version": "Qyventa Core",
-      "channel": "Server-KI",
-      "state": "Server-KI erreichbar",
-      "message": "Die lokale Server-KI ist erreichbar und hat im Verbindungstest geantwortet. Die Verarbeitung von Spielaufnahmen und die automatische Highlight-Auswahl im vollständigen Gaming-Ablauf stehen noch zur Prüfung aus."
-    },
-    {
-      "id": "demo-download",
-      "group": "development",
-      "name": "Qyventa DemoDownload",
-      "version": "Development",
-      "channel": "Steam / Valve",
-      "state": "In Entwicklung",
-      "message": "Match-Demos sollen automatisch erkannt, geladen, sauber zugeordnet und direkt an den Qyventa-Server übergeben werden. Bereits vorhandene oder fehlerhafte Downloads dürfen die restliche Warteschlange nicht blockieren."
-    },
-    {
-      "id": "capture",
-      "group": "working",
-      "name": "Capture im Creator Studio",
-      "version": "In Creator Studio integriert",
-      "channel": "Windows · Aufnahme und Stream",
-      "state": "Studio verbunden",
-      "message": "Aufnahme und Stream stehen im integrierten Studio bereit. Gaming-Clips und lokale Aufnahmen werden im Creator Studio ausgewählt und aufbereitet."
+      "message": "Lokale Aufnahmen und vom Handy übertragene Videos können ausgewählt, zugeschnitten und im gewünschten Format als MP4 vorbereitet werden."
     }
   ]
 }
