@@ -184,9 +184,9 @@
         </div>
       </div>
     </section>
-<section id="partner" class="partner-bottom" aria-label="Partner"><div class="wrap"><div class="partner-bottom-row"><span>Partner:</span><a href="https://tcg-connect-plus.netlify.app/#start" target="_blank" rel="noopener noreferrer" aria-label="TCG Connect+ öffnen (neuer Tab)">TCG Connect+ ↗</a></div></div></section>
+
 </main>
-<footer><div class="wrap footer-row"><span>© 2026 Qyventa · Privates, nicht-kommerzielles Entwicklungsprojekt</span><div class="footer-links"><a href="#partner">Partner</a><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="mailto:bascore@gmail.com">Kontakt</a></div></div></footer>
+<footer><div class="wrap footer-row"><span>© 2026 Qyventa · Privates, nicht-kommerzielles Entwicklungsprojekt</span><div class="footer-links"><a href="#partner">Partner</a><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="mailto:bascore@gmail.com">Kontakt</a></div></div><section id="partner" class="partner-bottom" aria-label="Partner"><div class="wrap"><div class="partner-bottom-row"><span>Partner:</span><a href="https://tcg-connect-plus.netlify.app/#start" target="_blank" rel="noopener noreferrer" aria-label="TCG Connect+ öffnen (neuer Tab)">TCG Connect+ ↗</a></div></div></section></footer>
 <script>
 const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.13});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
