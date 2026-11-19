@@ -96,6 +96,14 @@
       throw error;
     }
     gateStyles.remove();
+    const footer = document.querySelector('footer') ?? document.body.appendChild(document.createElement('footer'));
+    footer.classList.add('footer');
+    const privacyLink = document.createElement('a');
+    privacyLink.href = '/#datenschutz-trainer';
+    privacyLink.textContent = 'Datenschutz zum Lerntrainer';
+    const privacyRow = document.createElement('p');
+    privacyRow.append(privacyLink);
+    footer.append(privacyRow);
     activeUntil = session.expiresAt;
   }
 

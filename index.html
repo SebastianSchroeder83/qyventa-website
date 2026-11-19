@@ -45,7 +45,8 @@
     @media(max-width:1100px) and (min-width:901px){.header-brands{gap:12px}.header-club{padding-left:12px}.navlinks{gap:9px;font-size:.72rem}nav{gap:12px}}
     @media(max-width:620px){nav{gap:10px}.header-brands{gap:10px;min-width:0}.brand{gap:7px;font-size:.83rem}.header-club{gap:6px;padding-left:10px}.header-club img{width:28px;height:20px}.header-club small{font-size:.53rem}.header-club strong{font-size:.6rem}.menu{flex-shrink:0}}
     @media(max-width:359px){.header-brands{gap:7px}.header-club{padding-left:7px}.header-club img{width:23px}.brand{font-size:.75rem}.brand img{width:32px;height:32px}}
-  </style>
+#datenschutz-trainer{scroll-margin-top:7rem}
+</style>
 </head>
 <body>
 <canvas id="particles"></canvas>
@@ -98,7 +99,7 @@
           <details class="legal-card reveal" id="datenschutz">
             <summary>Datenschutzerklärung nach DSGVO</summary>
             <div class="legal-content">
-              <p><strong>Stand: 11. August 2026</strong></p>
+              <p><strong>Stand: 19. November 2026</strong></p>
 
               <h3>1. Verantwortlicher</h3>
               <address>
@@ -111,7 +112,7 @@
               <p>Ein Datenschutzbeauftragter ist für dieses Entwicklungsprojekt derzeit nicht bestellt.</p>
 
               <h3>2. Grundsätze der Datenverarbeitung</h3>
-              <p>Personenbezogene Daten werden nur verarbeitet, soweit dies für den sicheren Betrieb der Website, die Beantwortung von Anfragen oder die gewünschte Vorregistrierung zur Qyventa-Beta erforderlich ist. Es findet keine automatisierte Entscheidungsfindung und kein Profiling statt.</p>
+              <p>Personenbezogene Daten werden nur verarbeitet, soweit dies für den sicheren Betrieb der Website, die Bereitstellung des Lerntrainers, die Beantwortung von Anfragen oder die gewünschte Vorregistrierung zur Qyventa-Beta erforderlich ist. Es findet keine automatisierte Entscheidungsfindung und kein Profiling statt.</p>
 
               <h3>3. Aufruf der Website, Hosting und Server-Logdateien</h3>
               <p>Beim Aufruf der Website können technisch notwendige Verbindungsdaten verarbeitet werden. Dazu gehören insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite oder Datei, Referrer-URL, Browsertyp, Betriebssystem und übertragene Datenmenge. Die Verarbeitung dient der sicheren und stabilen Bereitstellung der Website, der Fehleranalyse sowie der Abwehr von Missbrauch.</p>
@@ -149,8 +150,22 @@
               <h3>8. Cookies, Analyse und externe Schriftarten</h3>
               <p>Qyventa setzt auf dieser Seite derzeit keine eigenen Analyse-, Marketing- oder Werbe-Cookies ein. Es werden keine externen Schriftarten geladen. Beim freiwilligen Öffnen des YouTube-Videos können YouTube beziehungsweise Google Cookies oder vergleichbare Technologien einsetzen. Technisch notwendige Sicherheitsfunktionen des Hosting- oder Schutzanbieters können im Einzelfall ebenfalls erforderliche Cookies oder vergleichbare Technologien verwenden.</p>
 
+              <h3 id="datenschutz-trainer">8a. Lerntrainer und Windows-Download</h3>
+              <h4>Bereitstellung und Passwortfreigabe</h4>
+              <p>Die Einstiegsseiten des Lerntrainers werden über GitHub Pages ausgeliefert. Für die Passwortprüfung und die Auslieferung der Lerninhalte und der Windows-Installationsdatei setzen wir OpenAI Ireland Limited (Irland) mit dem Dienst ChatGPT Sites als Auftragsverarbeiter ein. Der Zugang erfolgt über ein gemeinsames Passwort. Der Browser übermittelt das eingegebene Passwort verschlüsselt per HTTPS zur Prüfung.</p>
+              <p>Bei der Passworteingabe und beim Abruf fallen technische Daten wie IP-Adresse, Zeitpunkt, Browserinformationen, angefragte Adresse und Antwortstatus an. Zur Abwehr von Missbrauch verarbeitet die Anwendung IP-Adresse und Anzahl fehlgeschlagener Freigabeversuche in einem Zeitfenster von 15 Minuten. Abgelaufene Einträge werden bei späteren Prüfungen aus dem Arbeitsspeicher entfernt. Für technische Protokolldaten der Hosting-Anbieter gelten die Kriterien unter Ziffer 10.</p>
+              <p>Rechtsgrundlage für die Bereitstellung und Absicherung ist Art. 6 Abs. 1 lit. f DSGVO. Unsere berechtigten Interessen sind ein funktionsfähiger Lerntrainer, die Begrenzung des Zugangs auf den vorgesehenen Personenkreis und der Schutz vor Missbrauch.</p>
+
+              <h4>Freigabe, Lernstand und Entwürfe auf deinem Gerät</h4>
+              <p>Nach der Browser-Freigabe speichert der Trainer die geladenen Lerninhalte mit der Freigabefrist im Sitzungsspeicher des Browser-Tabs (<code>sessionStorage</code>). Die Freigabe gilt eine Stunde. Der Sitzungsspeicher ist an die Tab-Sitzung gebunden. Beim nächsten Aufruf nach Ablauf entfernt der Trainer den gespeicherten Eintrag. Für den Windows-Download wird ein technisch erforderliches Sitzungscookie mit einer Laufzeit von einer Stunde gesetzt.</p>
+              <p>Deine Eingaben zum Unternehmen oder Projekt, Pitch-Entwürfe und Notizen, Antworten, Fehler und dein Lernfortschritt bleiben auf deinem Gerät. Im Browser speichert der Trainer diese Angaben im lokalen Speicher (<code>localStorage</code>), damit du später weiterüben kannst. Sie bleiben dort, bis du die Website-Daten für qyventa.com löschst oder der Browser sie entfernt. Die installierte Windows-App speichert die Angaben in ihrem lokalen Benutzerprofil und kann offline genutzt werden. Durch Löschen der lokalen App-Daten entfernst du den dort gespeicherten Lernstand.</p>
+              <p>Für die zur Freigabe und zum Fortsetzen der genutzten Lernfunktionen erforderliche Speicherung auf dem Gerät gilt § 25 Abs. 2 Nr. 2 TDDDG.</p>
+
+              <h4>Empfänger und Datenverarbeitung außerhalb des EWR</h4>
+              <p>OpenAI verarbeitet technische Daten für die Bereitstellung des Dienstes und nutzt dafür technische Dienstleister wie Cloudflare. Dabei können technische Daten außerhalb des Europäischen Wirtschaftsraums verarbeitet werden. Das Zusatzabkommen von OpenAI sieht für solche Übermittlungen je nach Fall Angemessenheitsbeschlüsse oder die Standardvertragsklauseln der EU-Kommission vor. Angaben zu den Garantien und die Unterauftragsverarbeiter findest du in der <a href="https://openai.com/policies/chatgpt-sites-data-processing-addendum/" target="_blank" rel="noopener noreferrer">Vereinbarung zur Datenverarbeitung für ChatGPT Sites</a> und in der <a href="https://openai.com/policies/sub-processor-list/" target="_blank" rel="noopener noreferrer">Liste der Unterauftragsverarbeiter</a>. Weitere Auskünfte erhältst du über den Kontakt unter Ziffer 1.</p>
+
               <h3>9. Empfänger und Drittlandübermittlung</h3>
-              <p>Empfänger personenbezogener Daten können – jeweils nur soweit erforderlich – Cloudflare, GitHub, FormSubmit sowie Google/Gmail und beim freiwilligen Öffnen des Videos YouTube sein. Einige Anbieter haben ihren Sitz in den USA oder verarbeiten Daten dort. Soweit erforderlich, stützen die Anbieter Übermittlungen auf einen Angemessenheitsbeschluss, eine gültige Zertifizierung nach dem EU-US Data Privacy Framework und/oder die Standardvertragsklauseln der EU-Kommission. Trotz dieser Schutzmechanismen kann bei einer Verarbeitung in den USA ein von der EU abweichendes Datenschutzniveau nicht vollständig ausgeschlossen werden.</p>
+              <p>Empfänger personenbezogener Daten können – jeweils nur soweit erforderlich – Cloudflare, GitHub, FormSubmit sowie Google/Gmail und beim freiwilligen Öffnen des Videos YouTube sein. Beim Lerntrainer kommt OpenAI für ChatGPT Sites hinzu (siehe Ziffer 8a). Einige Anbieter haben ihren Sitz in den USA oder verarbeiten Daten dort. Soweit erforderlich, stützen die Anbieter Übermittlungen auf einen Angemessenheitsbeschluss, eine gültige Zertifizierung nach dem EU-US Data Privacy Framework und/oder die Standardvertragsklauseln der EU-Kommission. Trotz dieser Schutzmechanismen kann bei einer Verarbeitung in den USA ein von der EU abweichendes Datenschutzniveau nicht vollständig ausgeschlossen werden.</p>
 
               <h3>10. Speicherdauer</h3>
               <p>Daten der Warteliste werden bis zum Widerruf der Einwilligung oder bis zum Wegfall des Informationszwecks gespeichert und anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Daten aus Kontaktanfragen werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen oder berechtigten Gründe für eine weitere Speicherung bestehen. Technische Protokolldaten werden von den eingesetzten Hosting- und Sicherheitsanbietern nur so lange gespeichert, wie dies für Sicherheit, Fehleranalyse und gesetzliche Pflichten erforderlich ist.</p>
@@ -198,7 +213,17 @@
 const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.13});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const inlineVideo=document.getElementById('inlineVideo');function playInlineVideo(){if(inlineVideo.querySelector('iframe'))return;const iframe=document.createElement('iframe');iframe.title='Qyventa Product Demo auf YouTube';iframe.src=`https://www.youtube-nocookie.com/embed/${inlineVideo.dataset.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allowFullscreen=true;inlineVideo.classList.add('playing');inlineVideo.replaceChildren(iframe)}document.getElementById('openDemo').addEventListener('click',()=>{playInlineVideo();document.getElementById('tiltCard').scrollIntoView({behavior:'smooth',block:'center'})});document.getElementById('openDemo2').addEventListener('click',playInlineVideo);
-function openLegalTarget(){if(!location.hash)return;const target=document.querySelector(location.hash);if(target?.matches('details.legal-card'))target.open=true}document.querySelectorAll('a[href="#impressum"],a[href="#datenschutz"]').forEach(link=>link.addEventListener('click',()=>{const target=document.querySelector(link.getAttribute('href'));if(target?.matches('details.legal-card'))target.open=true}));addEventListener('hashchange',openLegalTarget);openLegalTarget();
+function openLegalTarget(hash=location.hash){
+  const target=document.getElementById(hash.slice(1));
+  const panel=target?.closest('details.legal-card');
+  if(!panel)return;
+  panel.open=true;
+  panel.classList.add('visible');
+  if(target!==panel)requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
+}
+document.querySelectorAll('a[href="#impressum"],a[href="#datenschutz"]').forEach(link=>link.addEventListener('click',()=>openLegalTarget(link.hash)));
+addEventListener('hashchange',()=>openLegalTarget());
+openLegalTarget();
 const developmentPanel=document.getElementById('developmentPanel');function openDevelopmentTarget(){if(location.hash==='#status')developmentPanel.open=true}document.querySelectorAll('a[href="#status"]').forEach(link=>link.addEventListener('click',()=>developmentPanel.open=true));addEventListener('hashchange',openDevelopmentTarget);openDevelopmentTarget();
 const dateTimeFormatter=new Intl.DateTimeFormat('de-DE',{dateStyle:'medium',timeStyle:'short'});const dateFormatter=new Intl.DateTimeFormat('de-DE',{dateStyle:'medium'});
 function createStatusCard(app){const card=document.createElement('article');card.className='status-card reveal visible';card.dataset.appId=app.id;const top=document.createElement('div');top.className='status-top';const titleWrap=document.createElement('div');const title=document.createElement('h3');title.textContent=app.name||'Qyventa Modul';const version=document.createElement('div');version.className='status-version';version.textContent=`Version ${app.version||'–'} · ${app.channel||'Development'}`;titleWrap.append(title,version);const state=document.createElement('span');state.className='status-badge';state.textContent=app.state||'Status unbekannt';top.append(titleWrap,state);const info=document.createElement('details');info.className='status-info';const infoTitle=document.createElement('summary');infoTitle.textContent='Info';const message=document.createElement('p');message.textContent=app.message||'Weitere Informationen folgen.';info.append(infoTitle,message);card.append(top,info);return card}
