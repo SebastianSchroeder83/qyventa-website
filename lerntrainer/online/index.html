@@ -6,24 +6,39 @@
   <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://sales-pruefungstrainer-download.bashcore.chatgpt.site; base-uri 'none'; form-action 'none'">
   <title>Online-Prüfungstrainer · Qyventa</title>
-  <link rel="stylesheet" href="online-gate.css">
-  <script src="online-trainer.js" defer></script>
+  <link id="trainer-gate-styles" rel="stylesheet" href="online-gate.css?v=privacy-session-2">
+  <link rel="stylesheet" href="trainer-brand.css?v=privacy-session-2">
+  <script src="online-trainer.js?v=privacy-session-2" defer></script>
 </head>
-<body class="trainer-access">
+<body class="trainer-access" data-trainer-theme="qyventa">
   <main id="online-gate">
+    <div class="trainer-gate-top">
+      <div class="trainer-brand"><img src="/qyventa-icon.png" alt="" width="40" height="40"><span>QYVENTA</span></div>
+      <div class="trainer-theme-control">
+        <label for="trainer-theme">Darstellung</label>
+        <select id="trainer-theme">
+          <option value="qyventa">Qyventa</option>
+          <option value="light">Hell</option>
+          <option value="dark">Dunkel</option>
+        </select>
+      </div>
+    </div>
     <h1>Sales-Prüfungstrainer</h1>
     <p>Gib das Batch-Passwort ein, um den Trainer im Browser zu öffnen.</p>
+    <p id="trainer-privacy-notice">Deine Antworten, Notizen und Pitch-Eingaben sind nur in diesem Browser-Tab sichtbar. Dein Browser nutzt sie ausschließlich für die laufende Übung. Über „Sitzung beenden und Eingaben löschen“ entfernst du sie sofort.</p>
+    <p><a href="/#datenschutz-trainer">Datenschutz zum Lerntrainer</a></p>
     <form id="trainer-access-form" method="post">
       <label for="trainer-password">Batch-Passwort</label>
       <input id="trainer-password" type="password" name="password" autocomplete="current-password" autocapitalize="off" maxlength="128" aria-describedby="trainer-access-message" required>
+      <label class="privacy-acknowledgement">
+        <input id="trainer-privacy-acknowledged" type="checkbox" name="privacyAcknowledged" value="yes" autocomplete="off" aria-describedby="trainer-privacy-notice" required>
+        <span>Ich habe den Datenschutzhinweis zur Trainersitzung zur Kenntnis genommen.</span>
+      </label>
       <button type="submit">Trainer öffnen</button>
     </form>
     <p id="trainer-access-message" role="alert" hidden></p>
     <noscript>Aktiviere JavaScript, um den Trainer zu öffnen.</noscript>
-    <footer>
-      <p><a href="/#datenschutz-trainer">Datenschutz zum Lerntrainer</a></p>
-      <p><a href="/lerntrainer/">Zur Lerntrainer-Übersicht</a></p>
-    </footer>
+    <footer><p><a href="/lerntrainer/">Zur Lerntrainer-Übersicht</a></p></footer>
   </main>
 </body>
 </html>

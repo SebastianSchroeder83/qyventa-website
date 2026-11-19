@@ -1,11 +1,55 @@
 body.trainer-access {
+  --gate-page: #090b12;
+  --gate-panel: #141b2b;
+  --gate-field: #0c1524;
+  --gate-line: #38465e;
+  --gate-field-border: #7e8fab;
+  --gate-text: #f7f8ff;
+  --gate-muted: #c5d1e4;
+  --gate-accent: #1ce6e2;
+  --gate-action: #61c7f6;
+  --gate-action-text: #071120;
+  --gate-link: #83d4ff;
+  --gate-error: #ffb1bc;
+  color-scheme: dark;
   margin: 0;
   min-height: 100vh;
   padding: clamp(1rem, 8vh, 6rem) 1rem;
   box-sizing: border-box;
-  color: #10243e;
-  background: #eff4fb;
+  color: var(--gate-text);
+  background: var(--gate-page);
   font: 1rem/1.55 system-ui, sans-serif;
+}
+
+body.trainer-access[data-trainer-theme="light"] {
+  --gate-page: #eff4fb;
+  --gate-panel: #fff;
+  --gate-field: #f6f8fc;
+  --gate-line: #cbd9eb;
+  --gate-field-border: #8ba0bb;
+  --gate-text: #10243e;
+  --gate-muted: #324b67;
+  --gate-accent: #165b89;
+  --gate-action: #124583;
+  --gate-action-text: #fff;
+  --gate-link: #154784;
+  --gate-error: #a02826;
+  color-scheme: light;
+}
+
+body.trainer-access[data-trainer-theme="dark"] {
+  --gate-page: #151517;
+  --gate-panel: #232428;
+  --gate-field: #1a1b1e;
+  --gate-line: #4b4d53;
+  --gate-field-border: #85878f;
+  --gate-text: #f3f3f5;
+  --gate-muted: #cdd0d5;
+  --gate-accent: #d8dde7;
+  --gate-action: #dee2e9;
+  --gate-action-text: #18191c;
+  --gate-link: #d3e5ff;
+  --gate-error: #ffc1c7;
 }
 
 #online-gate {
@@ -13,9 +57,48 @@ body.trainer-access {
   width: min(100%, 42rem);
   margin-inline: auto;
   padding: clamp(1.25rem, 5vw, 3rem);
-  background: white;
-  border: 1px solid #cbd9eb;
+  background: var(--gate-panel);
+  border: 1px solid var(--gate-line);
   border-radius: 1rem;
+}
+
+#online-gate .trainer-gate-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .9rem;
+  margin-bottom: 1.25rem;
+}
+
+#online-gate .trainer-brand {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  width: fit-content;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+#online-gate .trainer-brand img {
+  border-radius: .65rem;
+}
+
+#online-gate .trainer-theme-control {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9rem;
+}
+
+#online-gate select {
+  min-height: 2.2rem;
+  padding: .25rem .45rem;
+  border: 1px solid var(--gate-field-border);
+  border-radius: .4rem;
+  color: var(--gate-text);
+  background: var(--gate-field);
+  font: inherit;
 }
 
 #online-gate h1 {
@@ -27,6 +110,14 @@ body.trainer-access {
 
 #online-gate p {
   margin: .8rem 0;
+  color: var(--gate-muted);
+}
+
+#online-gate #trainer-privacy-notice {
+  padding: .75rem 1rem;
+  border-inline-start: 2px solid var(--gate-accent);
+  border-radius: .25rem;
+  background: var(--gate-field);
 }
 
 #online-gate form {
@@ -44,7 +135,7 @@ body.trainer-access {
   font-weight: 650;
 }
 
-#online-gate input,
+#online-gate input[type="password"],
 #online-gate button {
   box-sizing: border-box;
   width: 100%;
@@ -54,16 +145,17 @@ body.trainer-access {
   font: inherit;
 }
 
-#online-gate input {
-  border: 1px solid #8ba0bb;
-  color: #10243e;
-  background: white;
+#online-gate input[type="password"] {
+  border: 1px solid var(--gate-field-border);
+  color: var(--gate-text);
+  background: var(--gate-field);
 }
 
 #online-gate button {
   border: 0;
-  color: white;
-  background: #124583;
+  color: var(--gate-action-text);
+  background: var(--gate-action);
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -72,14 +164,28 @@ body.trainer-access {
   cursor: wait;
 }
 
-#online-gate :is(input, button, a):focus-visible {
-  outline: 3px solid #c3631d;
+#online-gate .privacy-acknowledgement {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+}
+
+#online-gate input[type="checkbox"] {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: .18rem 0 0;
+  accent-color: var(--gate-action);
+}
+
+#online-gate :is(input, button, a, select):focus-visible {
+  outline: 3px solid var(--gate-accent);
   outline-offset: 3px;
 }
 
 #online-gate [role="alert"] {
   margin: .8rem 0 0;
-  color: #a02826;
+  color: var(--gate-error);
 }
 
 #online-gate footer {
@@ -87,6 +193,6 @@ body.trainer-access {
 }
 
 #online-gate a {
-  color: #154784;
+  color: var(--gate-link);
   text-underline-offset: 3px;
 }

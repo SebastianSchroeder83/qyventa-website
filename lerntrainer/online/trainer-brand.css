@@ -1,0 +1,262 @@
+@media screen {
+  body.qyventa-trainer .brand-mark {
+    background: #0d1421 url("/qyventa-icon.png") center / cover no-repeat;
+    border: 1px solid #526780;
+    color: transparent;
+  }
+
+  body.qyventa-trainer .trainer-theme-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-inline-start: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  body.qyventa-trainer .trainer-theme-control select {
+    min-height: 34px;
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+
+  body.qyventa-trainer .trainer-end-session {
+    text-align: left;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) {
+    --paper: #080b14;
+    --white: #111827;
+    --ink: #f3f6ff;
+    --muted: #b2bdd2;
+    --line: #2d3b55;
+    --cyan: #67ece8;
+    --pale: #112b37;
+    --purple: #c0afff;
+    --green: #91e5b5;
+    --red: #ff9ead;
+    --orange: #ffbc82;
+    --qyventa-field: #0d1421;
+    --qyventa-raised: #182238;
+    --qyventa-hover: #20304a;
+    --qyventa-gradient: linear-gradient(125deg, #1ce6e2, #73a9ff 62%, #ad91ff);
+    --qyventa-button-ink: #081422;
+    --qyventa-header: rgb(8 11 20 / 94%);
+    --qyventa-hero: linear-gradient(120deg, #13263a, #111727 55%, #17182d);
+    --qyventa-inset: rgb(8 15 25 / 58%);
+    --qyventa-outline: #526780;
+    --qyventa-field-outline: #647997;
+    --qyventa-soft-ink: #cae6ef;
+    --qyventa-canvas:
+      radial-gradient(ellipse at 10% 0%, rgb(28 230 226 / 12%), transparent 37rem),
+      radial-gradient(ellipse at 94% 13%, rgb(141 92 255 / 15%), transparent 35rem),
+      var(--paper);
+    min-height: 100vh;
+    color-scheme: dark;
+    color: var(--ink);
+    background: var(--qyventa-canvas);
+  }
+
+  body.qyventa-trainer[data-trainer-theme="dark"] {
+    --paper: #111113;
+    --white: #1c1c20;
+    --ink: #f5f5f6;
+    --muted: #bdbdc4;
+    --line: #39393f;
+    --cyan: #dedee3;
+    --pale: #2b2b30;
+    --qyventa-field: #151518;
+    --qyventa-raised: #26262b;
+    --qyventa-hover: #303039;
+    --qyventa-gradient: #e3e3e8;
+    --qyventa-button-ink: #1b1b1e;
+    --qyventa-header: rgb(17 17 19 / 96%);
+    --qyventa-hero: linear-gradient(120deg, #26262c, #1c1c20);
+    --qyventa-inset: #17171a;
+    --qyventa-outline: #777780;
+    --qyventa-field-outline: #83838d;
+    --qyventa-soft-ink: #dedee3;
+    --qyventa-canvas: var(--paper);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) header {
+    background: var(--qyventa-header);
+    border-color: var(--line);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) nav a:hover,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) nav a[aria-current="page"] {
+    background: var(--qyventa-raised);
+    color: var(--ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) nav a[aria-current="page"] {
+    box-shadow: inset 0 -2px 0 var(--cyan);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(button, a, input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .hero {
+    margin-bottom: clamp(32px, 5vw, 60px);
+    padding: clamp(24px, 4.6vw, 64px);
+    border: 1px solid var(--line);
+    border-radius: 25px;
+    background: var(--qyventa-hero);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .hero h1 {
+    margin-top: 0;
+    font-size: clamp(35px, 4.8vw, 63px);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .exam-format {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--cyan);
+    border-radius: 13px;
+    background: var(--qyventa-inset);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .exam-format .big,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .statline strong,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .score,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .timer {
+    color: var(--cyan);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .timer.over {
+    color: var(--red);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.panel, .term, .chapter, .side-panel, .modebar) {
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.panel, .term, .side-panel) {
+    border-radius: 17px;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(input, select, textarea),
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .searchbox input {
+    background: var(--qyventa-field);
+    border-color: var(--qyventa-field-outline);
+    color: var(--ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(input, textarea)::placeholder {
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.btn, .answer, .answer .letter) {
+    background: var(--qyventa-raised);
+    border-color: var(--qyventa-outline);
+    color: var(--ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.btn, .answer, .chip):hover,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .modebar button:hover {
+    background: var(--qyventa-hover);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .btn.primary,
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .btn.primary:hover {
+    background: var(--qyventa-gradient);
+    border-color: transparent;
+    color: var(--qyventa-button-ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .btn.primary:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .btn.soft {
+    background: var(--pale);
+    border-color: var(--qyventa-outline);
+    color: var(--cyan);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .btn.danger {
+    color: var(--red);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .chip {
+    border-color: var(--qyventa-outline);
+    color: var(--muted);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .modebar button {
+    color: var(--muted);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .chip[aria-pressed="true"],
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .modebar button[aria-selected="true"],
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .answer[aria-pressed="true"] {
+    background: var(--pale);
+    border-color: var(--cyan);
+    box-shadow: inset 0 0 0 1px var(--cyan);
+    color: var(--ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .answer[aria-pressed="true"] .letter {
+    background: var(--cyan);
+    color: var(--qyventa-button-ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.empty, .statline, .example, .term details) {
+    border-color: var(--line);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.term .definition, .example, .term summary, .term details, .rubric, .transcript p, .review-card .reason) {
+    color: var(--muted);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .example strong {
+    color: var(--ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.pill, .tag, .progress-track, .review-line) {
+    background: var(--qyventa-raised);
+    color: var(--muted);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.notice, .oral-model, .tag.cyan) {
+    background: var(--pale);
+    color: var(--qyventa-soft-ink);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.pill.success, .review-line.solution) {
+    background: #102d29;
+    color: var(--green);
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .review-line.mine {
+    background: #341c2a;
+    color: var(--red);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  body.qyventa-trainer nav {
+    width: 100%;
+  }
+
+  body.qyventa-trainer nav a {
+    padding-inline: 8px;
+    font-size: 0.8rem;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) .hero {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  body.qyventa-trainer:where(:not([data-trainer-theme="light"])) :is(.hero, .app-title) h1 {
+    font-size: clamp(30px, 8.5vw, 39px);
+  }
+}
