@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sales-Prüfungstrainer mit eigener B2B-Geschäftsidee, Quiz, Pitch und Fachgespräch. Passwortgeschützte Downloads für Batch 8.">
-  <title>Sales-Prüfungstrainer herunterladen | Qyventa</title>
+  <meta name="description" content="Sales-Prüfungstrainer mit eigener B2B-Geschäftsidee, Quiz, Pitch und Fachgespräch. Passwortgeschützt im Browser oder als Windows-App verfügbar.">
+  <title>Sales-Prüfungstrainer | Qyventa</title>
   <style>
     :root { color-scheme: dark; --ink:#eef2ff; --muted:#c4cde4; --line:#394b66; --accent:#81e9fa; }
     * { box-sizing:border-box; }
@@ -21,9 +21,10 @@
     h2,p { margin:0; }
     h2 { font-size:1.25rem; }
     .intro { margin-top:1rem; }
-    .versions p,.hint { color:var(--muted); }
-    .download { justify-self:start; margin-top:.4rem; display:inline-block; color:var(--ink); font-weight:750; padding:.65rem .9rem; border-radius:.55rem; border:1px solid #5b7b9c; text-decoration:none; }
-    .download:hover { color:#0b233b; background:var(--accent); border-color:var(--accent); }
+    .versions p { color:var(--muted); }
+    .action { justify-self:start; margin-top:.4rem; display:inline-block; color:var(--ink); font-weight:750; padding:.65rem .9rem; border-radius:.55rem; border:1px solid #5b7b9c; text-decoration:none; }
+    .action:hover,.action--primary { color:#0b233b; background:var(--accent); border-color:var(--accent); }
+    .action--primary:hover { background:#a8f2fc; border-color:#a8f2fc; }
     a:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
     footer { margin-top:2rem; }
     footer a { color:var(--accent); }
@@ -35,14 +36,11 @@
   <main class="wrap">
     <h1>Sales-Prüfungstrainer</h1>
     <p class="intro">Trage dein Unternehmen und dein Angebot ein. Übe Vertriebsmethoden wie MEDDIC oder SPIN Selling, deinen zehnminütigen Pitch und das Fachgespräch. Deine Angaben und dein Lernstand bleiben auf deinem Gerät.</p>
-    <p class="intro">Wähle deine Version und gib das Download-Passwort ein.</p>
+    <p class="intro">Beide Zugänge sind passwortgeschützt.</p>
     <ul class="versions">
-      <li><h2>Windows</h2><p>Installationsprogramm für Windows (64 Bit).</p><a class="download" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=windows">Windows-Download öffnen</a></li>
-      <li><h2>Mac mit Apple-Chip</h2><p>ZIP für Macs mit Apple Silicon.</p><a class="download" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=mac-arm">Download für Apple-Chip öffnen</a></li>
-      <li><h2>Mac mit Intel-Prozessor</h2><p>ZIP für Intel-Macs.</p><a class="download" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=mac-intel">Download für Intel-Mac öffnen</a></li>
-      <li><h2>Browser-Version</h2><p>ZIP entpacken und index.html auf dem Gerät öffnen.</p><a class="download" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=browser">Browser-Download öffnen</a></li>
+      <li><h2>Im Browser</h2><p>Für Mac und andere Geräte. Starte den Trainer direkt im Browser.</p><a class="action action--primary" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=online">Trainer online starten</a></li>
+      <li><h2>Windows</h2><p>Installationsprogramm für Windows (64 Bit). Die App läuft auch offline.</p><a class="action" href="https://sales-pruefungstrainer-download.bashcore.chatgpt.site/?version=windows">Windows-Download öffnen</a></li>
     </ul>
-    <p class="hint">Die Mac-Versionen sind nicht von Apple notarisiert. Falls macOS den Start blockiert, kannst du die Browser-Version verwenden.</p>
     <footer><a href="/">Zurück zur Qyventa-Startseite</a></footer>
   </main>
 </body>
