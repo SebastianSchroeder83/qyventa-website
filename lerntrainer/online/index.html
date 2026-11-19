@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://sales-pruefungstrainer-download.bashcore.chatgpt.site; base-uri 'none'; form-action 'none'">
+  <title>Online-Prüfungstrainer · Qyventa</title>
+  <link rel="stylesheet" href="online-gate.css">
+  <script src="online-trainer.js" defer></script>
+</head>
+<body class="trainer-access">
+  <main id="online-gate">
+    <h1>Sales-Prüfungstrainer</h1>
+    <p>Gib das Batch-Passwort ein, um den Trainer im Browser zu öffnen.</p>
+    <form id="trainer-access-form" method="post">
+      <label for="trainer-password">Batch-Passwort</label>
+      <input id="trainer-password" type="password" name="password" autocomplete="current-password" autocapitalize="off" maxlength="128" aria-describedby="trainer-access-message" required>
+      <button type="submit">Trainer öffnen</button>
+    </form>
+    <p id="trainer-access-message" role="alert" hidden></p>
+    <noscript>Aktiviere JavaScript, um den Trainer zu öffnen.</noscript>
+    <footer><a href="/lerntrainer/">Zur Lerntrainer-Übersicht</a></footer>
+  </main>
+</body>
+</html>
