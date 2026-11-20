@@ -45,6 +45,11 @@
     @media(max-width:1100px) and (min-width:901px){.header-brands{gap:12px}.header-club{padding-left:12px}.navlinks{gap:9px;font-size:.72rem}nav{gap:12px}}
     @media(max-width:620px){nav{gap:10px}.header-brands{gap:10px;min-width:0}.brand{gap:7px;font-size:.83rem}.header-club{gap:6px;padding-left:10px}.header-club img{width:28px;height:20px}.header-club small{font-size:.53rem}.header-club strong{font-size:.6rem}.menu{flex-shrink:0}}
     @media(max-width:359px){.header-brands{gap:7px}.header-club{padding-left:7px}.header-club img{width:23px}.brand{font-size:.75rem}.brand img{width:32px;height:32px}}
+    /* Original demo and current channel video, with independent click-to-play players. */
+    .hero-grid{grid-template-columns:1fr;gap:36px}.hero-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}.hero-intro>div{min-width:0}.hero-intro h1{font-size:clamp(3.2rem,6.5vw,6rem);margin-bottom:0}.hero-intro-copy p{margin-top:0}.hero-media .system-online-bar{margin-bottom:24px}.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}.demo-card{min-width:0}.demo-card h2{min-height:3.3rem;display:flex;align-items:flex-end;margin:0 0 16px;font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.25;letter-spacing:-.025em}.demo-card .browserbar{height:40px}.video-direct-link{display:inline-flex;margin-top:14px;color:#b9c6dc;font-size:.9rem;text-decoration:underline;text-underline-offset:4px}.video-direct-link:hover{color:var(--cyan)}
+    @media(max-width:900px){.hero-intro{grid-template-columns:1fr;gap:26px}.hero-intro h1{font-size:clamp(3.4rem,13vw,5.5rem)}.hero-intro-copy p{margin-top:0}}
+    @media(max-width:760px){.video-grid{grid-template-columns:1fr;gap:32px}.demo-card h2{min-height:0;font-size:1.4rem}.hero-grid{gap:30px}}
+    @media(max-width:620px){.hero-intro h1{font-size:clamp(3rem,17vw,4.4rem)}.demo-card h2{font-size:1.25rem}.hero-media .system-online-bar{margin-bottom:20px}}
 #datenschutz-trainer{scroll-margin-top:7rem}
 </style>
 </head>
@@ -52,7 +57,23 @@
 <canvas id="particles"></canvas>
 <header><div class="wrap"><nav><div class="header-brands"><a class="brand" href="#top"><img src="qyventa-icon.png" alt="Qyventa"><span>QYVENTA</span></a><a id="unterstuetzung" class="header-club" href="https://vollpfosten-ev.com/" target="_blank" rel="noopener noreferrer" aria-label="Qyventa sponsert Vollpfosten e.V. – Vereinswebsite öffnen"><img src="vollpfosten-logo.svg" width="36" height="24" alt=""><span><small>Wir sponsern</small><strong>Vollpfosten e.V. ↗</strong></span></a></div><div class="navlinks" id="navLinks"><a href="#features">Die App</a><a href="#creators">Für Creator</a><a href="#modell">Modell</a><a href="#status">Entwicklungen</a><a href="/lerntrainer/">Lerntrainer</a><a href="#beta">Beta</a><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a></div><button class="menu" id="menuBtn" aria-label="Menü">☰</button></nav></div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow"><span class="dot"></span> Qyventa Creator Studio</span><h1>Create.<br><span class="gradient-text">Capture.</span><br>Publish.</h1><p>Dein erster Stream, deine nächste Kartenrunde oder dein Lieblingsrezept: Wähle deine Aufnahmen aus und mach daraus Clips für Shorts, Reels und TikTok. Aufnahme und AutoCut kommen in Qyventa Creator Studio zusammen.</p><div class="hero-actions"><a class="primary" href="#beta">Für Beta vormerken</a><button class="secondary" id="openDemo">Produktdemo ansehen</button></div><div class="trust"><span>Aufnahme &amp; Stream</span><span>Lokale Videos</span><span>Clip-Auswahl</span><span>AutoCut</span></div></div><div class="hero-media"><aside class="system-online-bar" id="aiServerBanner" aria-live="polite"><div class="system-online-main"><span class="server-orb" aria-hidden="true"></span><div class="system-online-copy"><strong id="aiServerTitle">KI-Server online</strong><span id="aiServerMeta">BashPc · Qyventa AI · Render Node FIX81</span></div></div><span class="online-chip" id="aiServerChip">ONLINE</span></aside><div class="stage" id="tiltCard"><div class="video-shell"><div class="browserbar"><i></i><i></i><i></i></div><div class="video" id="inlineVideo" data-video-id="r0_t5Qmhwr4"><img class="video-thumbnail" src="qyventa-demo-thumbnail.jpg" alt="Qyventa Auto-Cut Produktdemo"><div class="video-copy"><strong>Qyventa Auto Cut Demo</strong><small>YouTube · Produktvorschau</small></div><button class="play" id="openDemo2" aria-label="YouTube-Video direkt auf der Seite abspielen">▶</button></div></div></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid">
+  <div class="hero-intro"><div><span class="eyebrow"><span class="dot"></span> Qyventa Creator Studio</span><h1>Create.<br><span class="gradient-text">Capture.</span><br>Publish.</h1></div><div class="hero-intro-copy"><p>Dein erster Stream, deine nächste Kartenrunde oder dein Lieblingsrezept: Wähle deine Aufnahmen aus und mach daraus Clips für Shorts, Reels und TikTok. Aufnahme und AutoCut kommen in Qyventa Creator Studio zusammen.</p><div class="hero-actions"><a class="primary" href="#beta">Für Beta vormerken</a><button class="secondary" id="openDemo">Produktdemo ansehen</button></div><div class="trust"><span>Aufnahme &amp; Stream</span><span>Lokale Videos</span><span>Clip-Auswahl</span><span>AutoCut</span></div></div></div>
+  <div class="hero-media"><aside class="system-online-bar" id="aiServerBanner" aria-live="polite"><div class="system-online-main"><span class="server-orb" aria-hidden="true"></span><div class="system-online-copy"><strong id="aiServerTitle">KI-Server online</strong><span id="aiServerMeta">BashPc · Qyventa AI · Render Node FIX81</span></div></div><span class="online-chip" id="aiServerChip">ONLINE</span></aside>
+    <div class="video-grid" aria-label="Qyventa im Video: der Anfang und der aktuelle Stand">
+      <article class="demo-card" aria-labelledby="firstVideoHeading">
+        <h2 id="firstVideoHeading">Der Anfang</h2>
+        <div class="stage" id="tiltCard"><div class="video-shell"><div class="browserbar"><i></i><i></i><i></i></div><div class="video" id="inlineVideo" data-video-id="r0_t5Qmhwr4"><img class="video-thumbnail" src="qyventa-demo-thumbnail.jpg" alt="Qyventa Auto-Cut Produktdemo"><div class="video-copy"><strong>Qyventa Auto Cut Demo</strong><small>YouTube · Produktvorschau</small></div><button class="play" id="openDemo2" aria-label="YouTube-Video direkt auf der Seite abspielen">▶</button></div></div></div>
+        <a class="video-direct-link" href="https://www.youtube.com/watch?v=r0_t5Qmhwr4" target="_blank" rel="noopener noreferrer">Auf YouTube ansehen</a>
+      </article>
+      <article class="demo-card" aria-labelledby="latestVideoHeading">
+        <h2 id="latestVideoHeading">So weit sind wir bis jetzt gekommen</h2>
+        <div class="stage" id="latestVideoCard"><div class="video-shell"><div class="browserbar" aria-hidden="true"><i></i><i></i><i></i></div><div class="video" id="latestVideo" data-video-id="irLojkxBobw" data-video-title="BasHcorE – 10 Zeus-Kills in EINEM Match | CS2"><img class="video-thumbnail" src="qyventa-latest-thumbnail.jpg" width="480" height="360" alt="Vorschau: BasHcorE – 10 Zeus-Kills in einem Match in CS2"><div class="video-copy"><strong>10 Zeus-Kills in einem Match</strong><small>YouTube · BasHcorE · 17.11.2026</small></div><button class="play" id="openLatestVideo" aria-label="Aktuelles Video von BasHcorE direkt auf der Seite abspielen">▶</button></div></div></div>
+        <a class="video-direct-link" href="https://www.youtube.com/watch?v=irLojkxBobw" target="_blank" rel="noopener noreferrer">Auf YouTube ansehen</a>
+      </article>
+    </div>
+  </div>
+</div></section>
 <section id="features"><div class="wrap"><div class="section-head reveal"><h2>Dein Moment.<br><span class="gradient-text">Dein fertiger Clip.</span></h2><p>Vom Game- oder Handyvideo bis zum fertigen Video – in vier klaren Schritten.</p></div><div class="features">
 <article class="card reveal"><div class="icon">01</div><h3>Dein Moment</h3><p>Nimm dein Game auf oder wähle ein Handyvideo aus. Du bestimmst, welches Ausgangsmaterial verwendet wird.</p></article>
 <article class="card reveal"><div class="icon">02</div><h3>Szenen auswählen</h3><p>Suche deine besten Szenen selbst heraus oder lass passende Momente von Qyventa AI erkennen.</p></article>
@@ -143,9 +164,9 @@
               <h3>6. App-Status</h3>
               <p>Die App-Statusanzeige ruft beim Öffnen der Seite und anschließend automatisch alle 24 Stunden die Datei <code>app-status.json</code> von dieser Website ab. Dabei werden keine zusätzlichen Nutzerprofile erstellt, keine Daten im Browser dauerhaft gespeichert und keine Analyse- oder Werbedienste eingesetzt. Es fallen lediglich die unter Ziffer 3 beschriebenen technisch notwendigen Verbindungsdaten an.</p>
 
-              <h3>7. Eingebettetes YouTube-Video</h3>
-              <p>In der direkt sichtbaren Video-Vorschau der Startseite ist ein Video von YouTube eingebunden. Das lokal gespeicherte Vorschaubild ist sofort sichtbar. Eine Verbindung zu YouTube wird erst hergestellt, wenn du die Schaltfläche „Video direkt abspielen“ oder den Play-Button im Vorschaubild anklickst. Das Video wird anschließend direkt an dieser Stelle über den erweiterten Datenschutzmodus <code>youtube-nocookie.com</code> abgespielt.</p>
-              <p>Beim Laden können insbesondere IP-Adresse, Browser- und Geräteinformationen, Zeitpunkt des Aufrufs sowie Interaktionen mit dem Video an Google Ireland Limited beziehungsweise Google LLC übermittelt werden. YouTube kann dabei Cookies oder vergleichbare Speichertechnologien verwenden. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Wenn du das Video nicht öffnest, wird keine Verbindung zu YouTube hergestellt. Weitere Informationen findest du in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+              <h3>7. Eingebettete YouTube-Videos</h3>
+              <p>Die Startseite zeigt zwei Video-Vorschauen von YouTube. Die lokal gespeicherten Vorschaubilder sind sofort sichtbar. Eine Verbindung zu YouTube wird erst hergestellt, wenn du „Produktdemo ansehen“, den jeweiligen Play-Button oder „Auf YouTube ansehen“ anklickst. Jeder Play-Button lädt nur das gewählte Video. Die eingebettete Wiedergabe erfolgt direkt an dieser Stelle über den erweiterten Datenschutzmodus <code>youtube-nocookie.com</code>.</p>
+              <p>Beim Laden können insbesondere IP-Adresse, Browser- und Geräteinformationen, Zeitpunkt des Aufrufs sowie Interaktionen mit dem Video an Google Ireland Limited beziehungsweise Google LLC übermittelt werden. YouTube kann dabei Cookies oder vergleichbare Speichertechnologien verwenden. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Wenn du keines der Videos öffnest, wird keine Verbindung zu YouTube hergestellt. Weitere Informationen findest du in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
 
               <h3>8. Cookies, Analyse und externe Schriftarten</h3>
               <p>Qyventa setzt auf dieser Seite derzeit keine eigenen Analyse-, Marketing- oder Werbe-Cookies ein. Es werden keine externen Schriftarten geladen. Beim freiwilligen Öffnen des YouTube-Videos können YouTube beziehungsweise Google Cookies oder vergleichbare Technologien einsetzen. Technisch notwendige Sicherheitsfunktionen des Hosting- oder Schutzanbieters können im Einzelfall ebenfalls erforderliche Cookies oder vergleichbare Technologien verwenden.</p>
@@ -215,7 +236,22 @@
 <script>
 const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.13});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const inlineVideo=document.getElementById('inlineVideo');function playInlineVideo(){if(inlineVideo.querySelector('iframe'))return;const iframe=document.createElement('iframe');iframe.title='Qyventa Product Demo auf YouTube';iframe.src=`https://www.youtube-nocookie.com/embed/${inlineVideo.dataset.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allowFullscreen=true;inlineVideo.classList.add('playing');inlineVideo.replaceChildren(iframe)}document.getElementById('openDemo').addEventListener('click',()=>{playInlineVideo();document.getElementById('tiltCard').scrollIntoView({behavior:'smooth',block:'center'})});document.getElementById('openDemo2').addEventListener('click',playInlineVideo);
+const inlineVideo=document.getElementById('inlineVideo');
+function playInlineVideo(target=inlineVideo){
+  if(target.querySelector('iframe'))return;
+  const iframe=document.createElement('iframe');
+  iframe.title=target.dataset.videoTitle||'Qyventa Product Demo auf YouTube';
+  iframe.src=`https://www.youtube-nocookie.com/embed/${target.dataset.videoId}?autoplay=1&rel=0&playsinline=1`;
+  iframe.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.referrerPolicy='strict-origin-when-cross-origin';
+  iframe.allowFullscreen=true;
+  target.classList.add('playing');
+  target.closest('.stage').style.transform='none';
+  target.replaceChildren(iframe);
+}
+document.getElementById('openDemo').addEventListener('click',()=>{playInlineVideo();document.getElementById('tiltCard').scrollIntoView({behavior:'smooth',block:'center'})});
+document.getElementById('openDemo2').addEventListener('click',()=>playInlineVideo());
+document.getElementById('openLatestVideo').addEventListener('click',()=>playInlineVideo(document.getElementById('latestVideo')));
 function openLegalTarget(hash=location.hash){
   const target=document.getElementById(hash.slice(1));
   const panel=target?.closest('details.legal-card');
